@@ -22,12 +22,45 @@
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
             integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
             crossorigin="anonymous">
-
     </script>
+
+    <link rel="stylesheet" href="css/login.css" />
 </head>
 <body>
     <div class="container sing-in-form">
-        <p th:text="'Hello, ' + ${name} + '!'"/>
+        <div class="container sing-in-form">
+            <form class="form-signin" id="login-form" action="#" th:action="@{/login}" th:object="${loginEntity}" method="post">
+
+                <h2 class="form-signin-heading">Please sign in</h2>
+
+                <label for="input_Email" class="sr-only">Email address</label>
+
+                <input name="input_email" type="email" id="inputEmail" class="form-control"
+                       placeholder="Email address" required = "true" th:field="*{username}" />
+                <label
+                    for="input_Password" class="sr-only">Password
+                </label>
+
+                <input
+                    name="input_password" type="password" id="inputPassword"
+                    class="form-control" placeholder="Password" required = "true" th:field="*{password}" />
+
+                <div class="checkbox">
+                    <label> <input type="checkbox" value="remember-me" />
+                        Remember me
+                    </label>
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    Sign in
+                </button>
+
+                <a href="signup.htm" role="button"
+                   class="btn btn-lg btn-danger btn-block form-signin">Sign up
+                </a>
+
+            </form>
+        </div>
     </div>
 </body>
 </html>
