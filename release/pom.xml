@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.blogit</groupId>
-	<artifactId>release</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>blogit</artifactId>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>release</name>
-	<description>Demo project for Spring Boot</description>
+	<name>BLOGIT</name>
+	<description>Cloud Computing Project</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

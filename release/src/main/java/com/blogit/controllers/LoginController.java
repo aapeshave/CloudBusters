@@ -20,7 +20,7 @@ public class LoginController {
     }
 
     @PostMapping(value = "/login")
-    public String loginAction(@ModelAttribute LoginEntity loginEntity, BindingResult result) {
+    public String loginAction(@ModelAttribute LoginEntity loginEntity) {
         return "result";
     }
 
