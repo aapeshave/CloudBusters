@@ -9,13 +9,13 @@
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-          crossorigin="anonymous" />
+          crossorigin="anonymous"/>
 
     <!-- Optional theme -->
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
           integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
-          crossorigin="anonymous" />
+          crossorigin="anonymous"/>
 
     <!-- Latest compiled and minified JavaScript -->
     <script
@@ -24,43 +24,44 @@
             crossorigin="anonymous">
     </script>
 
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/login.css"/>
 </head>
 <body>
+<div class="container sing-in-form">
     <div class="container sing-in-form">
-        <div class="container sing-in-form">
-            <form class="form-signin" id="login-form" action="#" th:action="@{/login}" th:object="${loginEntity}" method="post">
+        <form class="form-signin" id="login-form" action="#" th:action="@{/login}" th:object="${loginEntity}"
+              method="post">
 
-                <h2 class="form-signin-heading">Please sign in</h2>
+            <h2 class="form-signin-heading">Please sign in</h2>
 
-                <label for="input_Email" class="sr-only">Email address</label>
+            <label for="input_Email" class="sr-only">Email address</label>
 
-                <input name="input_email" type="email" id="inputEmail" class="form-control"
-                       placeholder="Email address" required = "true" th:field="*{username}" />
-                <label
+            <input name="input_email" type="email" id="inputEmail" class="form-control"
+                   placeholder="Email address" required="true" th:field="*{username}"/>
+            <label
                     for="input_Password" class="sr-only">Password
-                </label>
+            </label>
 
-                <input
+            <input
                     name="input_password" type="password" id="inputPassword"
-                    class="form-control" placeholder="Password" required = "true" th:field="*{password}" />
+                    class="form-control" placeholder="Password" required="true" th:field="*{password}"/>
 
-                <div class="checkbox">
-                    <label> <input type="checkbox" value="remember-me" />
-                        Remember me
-                    </label>
-                </div>
+            <div class="checkbox">
+                <label> <input type="checkbox" value="remember-me"/>
+                    Remember me
+                </label>
+            </div>
 
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    Sign in
-                </button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                Sign in
+            </button>
 
-                <a href="signup.htm" role="button"
-                   class="btn btn-lg btn-danger btn-block form-signin">Sign up
-                </a>
+            <a href="signup.htm" role="button"
+               class="btn btn-lg btn-danger btn-block form-signin">Sign up
+            </a>
 
-            </form>
-        </div>
+        </form>
     </div>
+</div>
 </body>
 </html>
