@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Getting Started: Serving Web Content</title>
@@ -24,15 +24,15 @@
             crossorigin="anonymous">
     </script>
 
-    <link rel="stylesheet" href="css/login.css"/>
+    <link rel="stylesheet" href="css/signup.css"/>
 </head>
 <body>
-<div class="container sing-in-form">
-    <div class="container sing-in-form">
-        <form class="form-signin" id="login-form" action="#" th:action="@{/login}" th:object="${loginEntity}"
+<div class="container signup-form">
+    <div class="container signup-form">
+        <form class="form-signup" id="signup-form" action="#" th:action="@{/signup}" th:object="${signupEntity}"
               method="post">
 
-            <h2 class="form-signin-heading">Please sign in</h2>
+            <h2 class="form-signup-heading">Please sign in</h2>
 
             <label for="input_Email" class="sr-only">Email address</label>
 
@@ -46,19 +46,22 @@
                     name="input_password" type="password" id="inputPassword"
                     class="form-control" placeholder="Password" required="true" th:field="*{password}"/>
 
-            <div class="checkbox">
-                <label> <input type="checkbox" value="remember-me"/>
-                    Remember me
-                </label>
-            </div>
+            <input
+                    name="input_password_match" type="password" id="retypeInputPassword"
+                    class="form-control" placeholder="Retype Password" required="true"/>
+
+
+            <input name="location" type="text" id="location" class="form-control" placeholder="Location" required="true"
+                   th:field="*{location}"/>
+
+            <input name="blogName" type="text" id="blogName" class="form-control" placeholder="Blog Name"
+                   required="true"
+                   th:field="*{blogName}"/>
+
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">
-                Sign in
+                Signup
             </button>
-
-            <a href="signup.htm" role="button"
-               class="btn btn-lg btn-danger btn-block form-signin">Sign up
-            </a>
 
         </form>
     </div>
