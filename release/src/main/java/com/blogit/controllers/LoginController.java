@@ -16,7 +16,6 @@ public class LoginController {
     public String login(@RequestParam(value = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("name", name);
         model.addAttribute("loginEntity", new LoginEntity());
-        System.out.println("Test sys out");
         return "login";
     }
 
