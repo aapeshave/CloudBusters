@@ -16,14 +16,14 @@ import org.springframework.util.StringUtils;
 @Configuration
 @EnableDynamoDBRepositories(basePackages = "com.blogit.repositories")
 public class DynamoDbConfiguration {
-    // @Value("${amazon.dynamodb.endpoint}")
-    private String amazonDynamoDBEndpoint = "http://localhost:8000";
+    @Value("${amazon.dynamodb.endpoint}")
+    private String amazonDynamoDBEndpoint;
 
-    // @Value("${amazon.aws.accesskey}")
-    private String amazonAWSAccessKey = "AKIAI7JZLHYYCUQK2VEQ";
+    @Value("${amazon.aws.accesskey}")
+    private String amazonAWSAccessKey;
 
-    // @Value("${amazon.aws.secretkey}")
-    private String amazonAWSSecretKey = "DM0IjD31fNqVgWsLGJ1/B2tkmkX6l8juuyEJTgZr";
+    @Value("${amazon.aws.secretkey}")
+    private String amazonAWSSecretKey;
 
     @Bean
     public AmazonDynamoDB amazonDynamoDB(AWSCredentials amazonAWSCredentials) {

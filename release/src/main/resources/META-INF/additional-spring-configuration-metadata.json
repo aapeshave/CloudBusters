@@ -1,0 +1,19 @@
+{
+  "properties": [
+    {
+      "name": "amazon.dynamodb.endpoint",
+      "type": "java.lang.String",
+      "description": "Link for the dynamoDB."
+    },
+    {
+      "name": "amazon.aws.accesskey",
+      "type": "java.lang.String",
+      "description": "Sample aws accessKey."
+    },
+    {
+      "name": "amazon.aws.secretkey",
+      "type": "java.lang.String",
+      "description": "Sample aws secretkey."
+    }
+  ]
+}
