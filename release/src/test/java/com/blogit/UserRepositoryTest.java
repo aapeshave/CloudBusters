@@ -6,6 +6,7 @@ import com.blogit.pojo.User;
 import com.blogit.repositories.UserRepository;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Ignore
 public class UserRepositoryTest {
     private static final String KEY_NAME = "id";
     private static final Long READ_CAPACITY_UNITS = 5L;
