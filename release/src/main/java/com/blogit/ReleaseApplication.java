@@ -14,7 +14,11 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 @EnableAutoConfiguration
 @ComponentScan(basePackages = {
         "com.blogit.controllers",
-        "com.blogit.Entity"
+        "com.blogit.entity",
+        "com.blogit.configuration",
+        "com.blogit.service",
+        "com.blogit.pojo",
+        "com.blogit.repositories"
 })
 public class ReleaseApplication {
 

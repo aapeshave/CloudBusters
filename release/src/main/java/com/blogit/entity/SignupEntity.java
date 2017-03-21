@@ -1,4 +1,4 @@
-package com.blogit.Entity;
+package com.blogit.entity;
 
 /**
  * Created by ameyutturkar on 3/15/17.
