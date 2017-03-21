@@ -1,6 +1,6 @@
 package com.blogit.controllers;
 
-import com.blogit.Entity.LoginEntity;
+import com.blogit.entity.LoginEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;

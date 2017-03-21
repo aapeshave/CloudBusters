@@ -1,4 +1,4 @@
-package com.blogit.Entity;
+package com.blogit.entity;
 
 
 public class LoginEntity {
