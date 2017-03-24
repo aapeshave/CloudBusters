@@ -40,8 +40,7 @@ public class UserRepositoryTest {
 
         List<String> tableNames = listTablesResult.getTableNames();
 
-        for (String table : tableNames)
-        {
+        for (String table : tableNames) {
             amazonDynamoDB.deleteTable(table);
         }
 
@@ -51,8 +50,7 @@ public class UserRepositoryTest {
         List<KeySchemaElement> keySchemaElements = new ArrayList<KeySchemaElement>();
         keySchemaElements.add(new KeySchemaElement().withAttributeName(KEY_NAME).withKeyType(KeyType.HASH));
 
-        for (String table : tableNames)
-        {
+        for (String table : tableNames) {
             CreateTableRequest request = new CreateTableRequest()
                     .withTableName(table)
                     .withKeySchema(keySchemaElements)
@@ -78,8 +76,7 @@ public class UserRepositoryTest {
         List<User> result = repository.findByLastName("Matthews");
         Assert.assertNotNull("Assert that result is not empty", result);
 
-        for (User user : result)
-        {
+        for (User user : result) {
             System.out.println(user);
         }
     }
