@@ -1,0 +1,6 @@
+sudo: required
+language: java
+script:
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+services: mongodb
+before_script:  sleep 15
