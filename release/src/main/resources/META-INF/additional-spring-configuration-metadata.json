@@ -14,6 +14,11 @@
       "name": "amazon.aws.secretkey",
       "type": "java.lang.String",
       "description": "Sample aws secretkey."
+    },
+    {
+      "name": "amazon.aws.region",
+      "type": "java.lang.String",
+      "description": "Region where aws services are hosted."
     }
   ]
 }
