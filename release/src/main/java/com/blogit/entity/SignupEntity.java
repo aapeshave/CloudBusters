@@ -14,6 +14,9 @@ public class SignupEntity
     private String location;
     private String blogName;
 
+    private String firstName;
+    private String lastName;
+
     public String getUsername()
     {
         return username;
@@ -56,6 +59,22 @@ public class SignupEntity
 
     public void setBlogName(String blogName) {
         this.blogName = blogName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     // TODO: Write encryption and decryption algorithm. AES or DES.
