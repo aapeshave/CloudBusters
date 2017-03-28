@@ -34,7 +34,6 @@ public class SignupController {
                 signupEntity.setId(userId);
             }
         }
-
         return "signupSuccess";
     }
 }

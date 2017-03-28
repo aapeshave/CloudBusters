@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class SignUpServiceImpl implements SignUpService {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Override
     public String createUserAccount(SignupEntity signupEntity) {

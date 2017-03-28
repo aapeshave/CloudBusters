@@ -3,8 +3,7 @@ package com.blogit.entity;
 /**
  * Created by ameyutturkar on 3/15/17.
  */
-public class SignupEntity
-{
+public class SignupEntity {
     private static final String SECRET_KEY = "1x00786";
     private static final String ALGO_NAME = "AES";
 
@@ -27,23 +26,19 @@ public class SignupEntity
         this.id = id;
     }
 
-    public String getUsername()
-    {
+    public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username)
-    {
+    public void setUsername(String username) {
         this.username = encrypt(username);
     }
 
-    public String getPassword()
-    {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password)
-    {
+    public void setPassword(String password) {
         this.password = encrypt(password);
     }
 
@@ -88,13 +83,11 @@ public class SignupEntity
     }
 
     // TODO: Write encryption and decryption algorithm. AES or DES.
-    private String encrypt(String sValue)
-    {
+    private String encrypt(String sValue) {
         return sValue;
     }
 
-    private String decrypt(String sValue)
-    {
+    private String decrypt(String sValue) {
         return sValue;
     }
 }

@@ -80,4 +80,14 @@ public class UserRepositoryTest {
             System.out.println(user);
         }
     }
+
+    @Test
+    public void testSearchByUsernameAndPassword() throws Exception {
+        User user = new User("Dave", "Matthews", "dave", "admin", "dave@example.com");
+        repository.save(user);
+
+        User result = repository.findByUsernameAndPassword("dave", "admin");
+        Assert.assertNotNull(result);
+        Assert.assertEquals("Assert that password is admin", user.getPassword(), "admin");
+    }
 }
