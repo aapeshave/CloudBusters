@@ -21,6 +21,7 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Ignore
 public class UserRepositoryTest {
     private static final String KEY_NAME = "id";
     private static final Long READ_CAPACITY_UNITS = 5L;
