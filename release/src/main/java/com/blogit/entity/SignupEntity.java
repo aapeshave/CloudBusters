@@ -90,4 +90,18 @@ public class SignupEntity {
     private String decrypt(String sValue) {
         return sValue;
     }
+
+    @Override
+    public String toString() {
+        return "SignupEntity{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", location='" + location + '\'' +
+                ", blogName='" + blogName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", id='" + id + '\'' +
+                '}';
+    }
 }

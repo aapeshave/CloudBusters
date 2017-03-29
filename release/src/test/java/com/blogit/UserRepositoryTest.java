@@ -21,7 +21,6 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Ignore
 public class UserRepositoryTest {
     private static final String KEY_NAME = "id";
     private static final Long READ_CAPACITY_UNITS = 5L;
@@ -40,8 +39,10 @@ public class UserRepositoryTest {
 
         List<String> tableNames = listTablesResult.getTableNames();
 
-        for (String table : tableNames) {
-            amazonDynamoDB.deleteTable(table);
+        if (!tableNames.isEmpty()) {
+            for (String table : tableNames) {
+                amazonDynamoDB.deleteTable(table);
+            }
         }
 
         List<AttributeDefinition> attributeDefinitions = new ArrayList<AttributeDefinition>();
@@ -50,15 +51,17 @@ public class UserRepositoryTest {
         List<KeySchemaElement> keySchemaElements = new ArrayList<KeySchemaElement>();
         keySchemaElements.add(new KeySchemaElement().withAttributeName(KEY_NAME).withKeyType(KeyType.HASH));
 
-        for (String table : tableNames) {
-            CreateTableRequest request = new CreateTableRequest()
-                    .withTableName(table)
-                    .withKeySchema(keySchemaElements)
-                    .withAttributeDefinitions(attributeDefinitions)
-                    .withProvisionedThroughput(new ProvisionedThroughput().withReadCapacityUnits(READ_CAPACITY_UNITS)
-                            .withWriteCapacityUnits(WRITE_CAPACITY_UNITS));
+        if (!tableNames.isEmpty()) {
+            for (String table : tableNames) {
+                CreateTableRequest request = new CreateTableRequest()
+                        .withTableName(table)
+                        .withKeySchema(keySchemaElements)
+                        .withAttributeDefinitions(attributeDefinitions)
+                        .withProvisionedThroughput(new ProvisionedThroughput().withReadCapacityUnits(READ_CAPACITY_UNITS)
+                                .withWriteCapacityUnits(WRITE_CAPACITY_UNITS));
 
-            amazonDynamoDB.createTable(request);
+                amazonDynamoDB.createTable(request);
+            }
         }
 
         listTablesResult = amazonDynamoDB.listTables();

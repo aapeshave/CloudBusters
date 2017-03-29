@@ -32,12 +32,17 @@
         <form class="form-signup" id="signup-form" action="#" th:action="@{/signup}" th:object="${signupEntity}"
               method="post">
 
-            <h2 class="form-signup-heading">Please sign in</h2>
+            <h2 class="form-signup-heading">Please Sign Up</h2>
 
             <label for="input_Email" class="sr-only">Email address</label>
 
             <input name="input_email" type="email" id="inputEmail" class="form-control"
-                   placeholder="Email address" required="true" th:field="*{username}"/>
+                   placeholder="Email address" required="true" th:field="*{email}"/>
+
+            <label for="input_username" class="sr-only">Username</label>
+
+            <input name="input_username" type="text" id="inputUsername" class="form-control"
+                   placeholder="Username" required="true" th:field="*{username}"/>
             <label
                     for="input_Password" class="sr-only">Password
             </label>
