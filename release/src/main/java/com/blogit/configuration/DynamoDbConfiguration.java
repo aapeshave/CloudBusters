@@ -37,8 +37,7 @@ public class DynamoDbConfiguration {
         builder.setCredentials(awsCredentialsProvider());
         builder.setEndpointConfiguration(endpointConfiguration());
 
-        AmazonDynamoDB amazonDynamoDB = builder.build();
-        return amazonDynamoDB;
+        return builder.build();
     }
 
     @Bean
@@ -53,10 +52,9 @@ public class DynamoDbConfiguration {
 
     @Bean
     public AwsClientBuilder.EndpointConfiguration endpointConfiguration() {
-        AwsClientBuilder.EndpointConfiguration endpointConfiguration = new AwsClientBuilder.EndpointConfiguration(
+        return new AwsClientBuilder.EndpointConfiguration(
                 amazonDynamoDBEndpoint,
                 amazonAWSRegion);
-        return endpointConfiguration;
     }
 
 }

@@ -40,8 +40,10 @@ public class UserRepositoryTest {
 
         List<String> tableNames = listTablesResult.getTableNames();
 
-        for (String table : tableNames) {
-            amazonDynamoDB.deleteTable(table);
+        if (!tableNames.isEmpty()) {
+            for (String table : tableNames) {
+                amazonDynamoDB.deleteTable(table);
+            }
         }
 
         List<AttributeDefinition> attributeDefinitions = new ArrayList<AttributeDefinition>();
@@ -50,15 +52,17 @@ public class UserRepositoryTest {
         List<KeySchemaElement> keySchemaElements = new ArrayList<KeySchemaElement>();
         keySchemaElements.add(new KeySchemaElement().withAttributeName(KEY_NAME).withKeyType(KeyType.HASH));
 
-        for (String table : tableNames) {
-            CreateTableRequest request = new CreateTableRequest()
-                    .withTableName(table)
-                    .withKeySchema(keySchemaElements)
-                    .withAttributeDefinitions(attributeDefinitions)
-                    .withProvisionedThroughput(new ProvisionedThroughput().withReadCapacityUnits(READ_CAPACITY_UNITS)
-                            .withWriteCapacityUnits(WRITE_CAPACITY_UNITS));
+        if (!tableNames.isEmpty()) {
+            for (String table : tableNames) {
+                CreateTableRequest request = new CreateTableRequest()
+                        .withTableName(table)
+                        .withKeySchema(keySchemaElements)
+                        .withAttributeDefinitions(attributeDefinitions)
+                        .withProvisionedThroughput(new ProvisionedThroughput().withReadCapacityUnits(READ_CAPACITY_UNITS)
+                                .withWriteCapacityUnits(WRITE_CAPACITY_UNITS));
 
-            amazonDynamoDB.createTable(request);
+                amazonDynamoDB.createTable(request);
+            }
         }
 
         listTablesResult = amazonDynamoDB.listTables();
@@ -79,5 +83,15 @@ public class UserRepositoryTest {
         for (User user : result) {
             System.out.println(user);
         }
+    }
+
+    @Test
+    public void testSearchByUsernameAndPassword() throws Exception {
+        User user = new User("Dave", "Matthews", "dave", "admin", "dave@example.com");
+        repository.save(user);
+
+        User result = repository.findByUsernameAndPassword("dave", "admin");
+        Assert.assertNotNull(result);
+        Assert.assertEquals("Assert that password is admin", user.getPassword(), "admin");
     }
 }
