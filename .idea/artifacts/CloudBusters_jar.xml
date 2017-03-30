@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CloudBusters:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CloudBusters_jar</output-path>
+    <root id="archive" name="CloudBusters.jar" />
+  </artifact>
+</component>
