@@ -29,7 +29,8 @@
 <body>
 <div class="container sing-in-form">
     <div class="container sing-in-form">
-        <form class="form-signin" id="login-form" onsubmit="errorRedirect()" action="#" th:action="@{/login}" th:object="${loginEntity}"
+        <form class="form-signin" id="login-form" onsubmit="errorRedirect()" action="#" th:action="@{/login}"
+              th:object="${loginEntity}"
               method="post">
 
             <h2 class="form-signin-heading">Please sign in</h2>
@@ -52,14 +53,15 @@
                 </label>
             </div>
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit" >
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
                 Sign in
             </button>
-            <p th:if="${loginError}" class="error">Incorrect Username or Password</p>
 
             <a href="signup.htm" role="button"
                class="btn btn-lg btn-danger btn-block form-signin">Sign up
             </a>
+
+            <div id="errorx"><p th:if="${loginError}">Incorrect Username or Password</p></div>
 
         </form>
     </div>
