@@ -37,8 +37,9 @@ public class LoginController {
             return "userDashboard";
         }
         // TODO: this solution is time being. Will research for Spring boot error handling
-        return "errorPage";
+        //return "errorPage";
+        model.addAttribute("loginError", true);
+        return "login";
     }
-
 }
 
