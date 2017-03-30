@@ -31,14 +31,12 @@ public class LoginController {
     @PostMapping(value = "/login")
     public String loginAction(@ModelAttribute LoginEntity loginEntity, Model model) {
         User verifiedUser = loginService.validateUserAccount(loginEntity);
-        if(verifiedUser != null)
-        {
+        if (verifiedUser != null) {
             model.addAttribute("user", verifiedUser);
             return "userDashboard";
         }
-        // TODO: this solution is time being. Will research for Spring boot error handling
-        return "errorPage";
+        model.addAttribute("loginError", true);
+        return "login";
     }
-
 }
 
