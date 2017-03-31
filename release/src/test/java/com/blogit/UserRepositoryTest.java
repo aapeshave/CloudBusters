@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,10 +24,16 @@ public class UserRepositoryTest {
 
     @Test
     public void testAddUser() throws Exception {
+        List<String> tokens = new ArrayList<>();
+        tokens.add("Sample Token 1");
+
         User dave = new User("Dave", "Matthews");
+        dave.setAccessTokens(tokens);
         repository.save(dave);
 
         User carter = new User("Carter", "Beauford");
+
+        carter.setAccessTokens(tokens);
         repository.save(carter);
 
         List<User> result = repository.findByLastName("Matthews");
