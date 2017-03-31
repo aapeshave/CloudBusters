@@ -10,9 +10,9 @@ import java.io.File;
 
 public class readXMLFile {
 
-	  public static void main(String argv[]) {
+	 public static void main(String argv[]) {
 
-	    try {
+		 /*  try {
 
 		File fXmlFile = new File("C:\\Users\\kruti\\Downloads\\blogs\\blogs\\11253.male.26.Technology.Aquarius.xml");
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -52,6 +52,7 @@ public class readXMLFile {
 	    } catch (Exception e) {
 		e.printStackTrace();
 	    }
+	    */
 	  }
 
 	
