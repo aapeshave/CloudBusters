@@ -2,8 +2,10 @@ package com.blogit.service.impl;
 
 import com.blogit.entity.SignupEntity;
 import com.blogit.pojo.AccessToken;
+import com.blogit.repositories.AccessTokensRepository;
 import com.blogit.service.TokenService;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,8 @@ import java.util.Date;
 @Service
 public class TokenServiceImpl implements TokenService {
 
+    @Autowired
+    AccessTokensRepository tokenRepository;
     @Value("$token.secretKey")
     private String API_SECRET;
 
