@@ -1,5 +1,7 @@
 package com.blogit.entity;
+
 import com.blogit.encryptionUtils.EncryptionDecryptionAES;
+
 import javax.crypto.NoSuchPaddingException;
 import java.security.NoSuchAlgorithmException;
 
@@ -7,21 +9,17 @@ import java.security.NoSuchAlgorithmException;
  * Created by ameyutturkar on 3/15/17.
  */
 public class SignupEntity {
-    private static final String SECRET_KEY = "1x00786";
-    private static final String ALGO_NAME = "AES";
 
+    private EncryptionDecryptionAES eAES = new EncryptionDecryptionAES();
     private String username;
     private String password;
     private String email;
     private String location;
     private String blogName;
-
     private String firstName;
     private String lastName;
-
     private String id;
-
-    EncryptionDecryptionAES eAES = new EncryptionDecryptionAES();
+    private String role;
 
     public SignupEntity() throws NoSuchPaddingException, NoSuchAlgorithmException {
 
@@ -43,17 +41,16 @@ public class SignupEntity {
         this.username = username;
     }
 
-    public String getPassword() { return password; }
+    public String getPassword() {
+        return password;
+    }
 
     public void setPassword(String password) {
 
-        try{
-            String encPassword = eAES.encrypt(password);
-            this.password = encPassword;
-        }
-        catch (Exception e)
-        {
-
+        try {
+            this.password = eAES.encrypt(password);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -97,14 +94,13 @@ public class SignupEntity {
         this.lastName = lastName;
     }
 
-    // TODO: Write encryption and decryption algorithm. AES or DES.
-    /*private String encrypt(String sValue) {
-        return sValue;
-    }*/
+    public String getRole() {
+        return role;
+    }
 
-    /*private String decrypt(String sValue) {
-        return sValue;
-    }*/
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     @Override
     public String toString() {
