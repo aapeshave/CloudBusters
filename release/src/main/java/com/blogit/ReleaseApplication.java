@@ -18,7 +18,8 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
         "com.blogit.configuration",
         "com.blogit.service",
         "com.blogit.pojo",
-        "com.blogit.repositories"
+        "com.blogit.repositories",
+        "com.blogit.encryptionUtils"
 })
 public class ReleaseApplication {
 

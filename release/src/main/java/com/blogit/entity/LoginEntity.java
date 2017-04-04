@@ -1,6 +1,12 @@
 package com.blogit.entity;
 
 
+import com.blogit.encryptionUtils.EncryptionDecryptionAES;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import javax.crypto.NoSuchPaddingException;
+import java.security.NoSuchAlgorithmException;
+
 public class LoginEntity {
 
     private static final String SECRET_KEY = "1x00786";
@@ -8,6 +14,12 @@ public class LoginEntity {
 
     private String username;
     private String password;
+
+    EncryptionDecryptionAES eAES = new EncryptionDecryptionAES();
+
+    public LoginEntity() throws NoSuchPaddingException, NoSuchAlgorithmException {
+
+    }
 
     public String getUsername() {
         return username;
@@ -22,7 +34,14 @@ public class LoginEntity {
     }
 
     public void setPassword(String password) {
-        this.password = encrypt(password);
+        try{
+            String encPassword = eAES.encrypt(password);
+            this.password = encPassword;
+        }
+        catch (Exception e)
+        {
+
+        }
     }
 
     // TODO: Write encryption and decryption algorithm. AES or DES.
