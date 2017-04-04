@@ -20,6 +20,7 @@ public class User {
     private String username;
     private String password;
     private String email;
+    private String role;
 
     private List<String> accessTokens;
 
@@ -103,6 +104,14 @@ public class User {
 
     public void setAccessTokens(List<String> accessTokens) {
         this.accessTokens = accessTokens;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override
