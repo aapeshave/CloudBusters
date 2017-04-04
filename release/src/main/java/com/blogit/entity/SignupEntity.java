@@ -1,4 +1,7 @@
 package com.blogit.entity;
+import com.blogit.encryptionUtils.EncryptionDecryptionAES;
+import javax.crypto.NoSuchPaddingException;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by ameyutturkar on 3/15/17.
@@ -18,6 +21,12 @@ public class SignupEntity {
 
     private String id;
 
+    EncryptionDecryptionAES eAES = new EncryptionDecryptionAES();
+
+    public SignupEntity() throws NoSuchPaddingException, NoSuchAlgorithmException {
+
+    }
+
     public String getId() {
         return id;
     }
@@ -31,15 +40,21 @@ public class SignupEntity {
     }
 
     public void setUsername(String username) {
-        this.username = encrypt(username);
+        this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
+    public String getPassword() { return password; }
 
     public void setPassword(String password) {
-        this.password = encrypt(password);
+
+        try{
+            String encPassword = eAES.encrypt(password);
+            this.password = encPassword;
+        }
+        catch (Exception e)
+        {
+
+        }
     }
 
     public String getEmail() {
@@ -83,13 +98,13 @@ public class SignupEntity {
     }
 
     // TODO: Write encryption and decryption algorithm. AES or DES.
-    private String encrypt(String sValue) {
+    /*private String encrypt(String sValue) {
         return sValue;
-    }
+    }*/
 
-    private String decrypt(String sValue) {
+    /*private String decrypt(String sValue) {
         return sValue;
-    }
+    }*/
 
     @Override
     public String toString() {
