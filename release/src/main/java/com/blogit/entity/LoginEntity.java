@@ -1,13 +1,20 @@
 package com.blogit.entity;
 
 
+import com.blogit.encryptionUtils.EncryptionDecryptionAES;
+
+import javax.crypto.NoSuchPaddingException;
+import java.security.NoSuchAlgorithmException;
+
 public class LoginEntity {
 
-    private static final String SECRET_KEY = "1x00786";
-    private static final String ALGO_NAME = "AES";
-
+    private EncryptionDecryptionAES eAES = new EncryptionDecryptionAES();
     private String username;
     private String password;
+
+    public LoginEntity() throws NoSuchPaddingException, NoSuchAlgorithmException {
+
+    }
 
     public String getUsername() {
         return username;
@@ -22,10 +29,14 @@ public class LoginEntity {
     }
 
     public void setPassword(String password) {
-        this.password = encrypt(password);
+
+        try {
+            this.password = eAES.encrypt(password);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    // TODO: Write encryption and decryption algorithm. AES or DES.
     private String encrypt(String sValue) {
         return sValue;
     }

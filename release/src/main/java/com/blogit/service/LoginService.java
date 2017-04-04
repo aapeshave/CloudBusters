@@ -13,5 +13,5 @@ public interface LoginService {
      * @param loginEntity is received from UI
      * @return id of the user account created
      */
-    User validateUserAccount(LoginEntity loginEntity);
+    User validateUserAccount(LoginEntity loginEntity) throws Exception;
 }

@@ -1,12 +1,8 @@
 package com.blogit;
 
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.model.*;
 import com.blogit.pojo.User;
 import com.blogit.repositories.UserRepository;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,60 +17,23 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Ignore
 public class UserRepositoryTest {
-    private static final String KEY_NAME = "id";
-    private static final Long READ_CAPACITY_UNITS = 5L;
-    private static final Long WRITE_CAPACITY_UNITS = 5L;
 
     @Autowired
-    UserRepository repository;
-
-    @Autowired
-    private AmazonDynamoDB amazonDynamoDB;
-
-
-    @Before
-    public void setup() throws Exception {
-        ListTablesResult listTablesResult = amazonDynamoDB.listTables();
-
-        List<String> tableNames = listTablesResult.getTableNames();
-
-        if (!tableNames.isEmpty()) {
-            for (String table : tableNames) {
-                amazonDynamoDB.deleteTable(table);
-            }
-        }
-
-        List<AttributeDefinition> attributeDefinitions = new ArrayList<AttributeDefinition>();
-        attributeDefinitions.add(new AttributeDefinition().withAttributeName(KEY_NAME).withAttributeType("S"));
-
-        List<KeySchemaElement> keySchemaElements = new ArrayList<KeySchemaElement>();
-        keySchemaElements.add(new KeySchemaElement().withAttributeName(KEY_NAME).withKeyType(KeyType.HASH));
-
-        if (!tableNames.isEmpty()) {
-            for (String table : tableNames) {
-                CreateTableRequest request = new CreateTableRequest()
-                        .withTableName(table)
-                        .withKeySchema(keySchemaElements)
-                        .withAttributeDefinitions(attributeDefinitions)
-                        .withProvisionedThroughput(new ProvisionedThroughput().withReadCapacityUnits(READ_CAPACITY_UNITS)
-                                .withWriteCapacityUnits(WRITE_CAPACITY_UNITS));
-
-                amazonDynamoDB.createTable(request);
-            }
-        }
-
-        listTablesResult = amazonDynamoDB.listTables();
-        System.out.println(listTablesResult);
-    }
+    private UserRepository repository;
 
     @Test
     public void testAddUser() throws Exception {
+        List<String> tokens = new ArrayList<>();
+        tokens.add("Sample Token 1");
+
         User dave = new User("Dave", "Matthews");
+        dave.setAccessTokens(tokens);
         repository.save(dave);
 
         User carter = new User("Carter", "Beauford");
+
+        carter.setAccessTokens(tokens);
         repository.save(carter);
 
         List<User> result = repository.findByLastName("Matthews");
@@ -83,6 +42,7 @@ public class UserRepositoryTest {
         for (User user : result) {
             System.out.println(user);
         }
+        repository.delete(result);
     }
 
     @Test
@@ -93,5 +53,7 @@ public class UserRepositoryTest {
         User result = repository.findByUsernameAndPassword("dave", "admin");
         Assert.assertNotNull(result);
         Assert.assertEquals("Assert that password is admin", user.getPassword(), "admin");
+
+        repository.delete(user);
     }
 }
