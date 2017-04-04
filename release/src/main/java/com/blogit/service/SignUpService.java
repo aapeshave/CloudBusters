@@ -12,5 +12,5 @@ public interface SignUpService {
      * @param signupEntity is received from UI
      * @return id of the user account created
      */
-    String createUserAccount(SignupEntity signupEntity);
+    String createUserAccount(SignupEntity signupEntity) throws Exception;
 }
