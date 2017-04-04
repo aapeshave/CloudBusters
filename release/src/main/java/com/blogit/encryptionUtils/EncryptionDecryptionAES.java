@@ -1,13 +1,14 @@
 package com.blogit.encryptionUtils;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.SecretKeySpec;
+import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
-import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.SecretKeySpec;
-
-import static javax.crypto.KeyGenerator.*;
 
 /**
  * Created by ameyutturkar on 4/3/17.
@@ -30,11 +31,14 @@ public class EncryptionDecryptionAES {
         return encryptedString;
     }
 
-    public String decrypt(String encryptedText) throws Exception {
+    public String decrypt(String encryptedText) {
         Base64.Decoder decoder = Base64.getDecoder();
-        cipher.init(Cipher.DECRYPT_MODE, aesKey);
-        String decryptedString = new String(cipher.doFinal(decoder.decode(encryptedText)));
-        System.out.println(decryptedString);
-        return decryptedString;
+        try {
+            cipher.init(Cipher.DECRYPT_MODE, aesKey);
+            return new String(cipher.doFinal(decoder.decode(encryptedText)));
+        } catch (InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
