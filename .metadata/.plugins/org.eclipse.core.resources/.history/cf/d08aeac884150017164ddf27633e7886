@@ -1,0 +1,25 @@
+package com.blogdataset.core;
+
+import javax.xml.bind.*;
+import java.io.* ;
+import javax.xml.transform.*;
+
+public class covertXmlToObject {
+
+	public static void main(String[] args) {
+
+		 try {
+
+			File file = new File("C:\\Users\\kruti\\Downloads\\blogs\\blogs\\11253.male.26.Technology.Aquarius.xml");
+			JAXBContext jaxbContext = JAXBContext.newInstance(Blog.class);
+
+			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+			Blog blog = (Blog) jaxbUnmarshaller.unmarshal(file);
+			System.out.println(blog);
+
+		  } catch (JAXBException e) {
+			e.printStackTrace();
+		  }
+
+		}
+}
