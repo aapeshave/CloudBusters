@@ -106,6 +106,7 @@ public class User {
         this.accessTokens = accessTokens;
     }
 
+    @DynamoDBAttribute
     public String getRole() {
         return role;
     }
@@ -118,6 +119,12 @@ public class User {
         accessTokens.add(encryptedToken);
     }
 
+    public String authoriationToken() {
+        if (!accessTokens.isEmpty()) {
+            return accessTokens.get(0);
+        }
+        return null;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

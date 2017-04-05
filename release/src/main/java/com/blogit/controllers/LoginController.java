@@ -37,6 +37,7 @@ public class LoginController {
         User verifiedUser = loginService.validateUserAccount(loginEntity);
         if (verifiedUser != null) {
             model.addAttribute("user", verifiedUser);
+            model.addAttribute("authorizationToken", verifiedUser.authoriationToken());
             return "userDashboard";
         }
         model.addAttribute("loginError", true);
