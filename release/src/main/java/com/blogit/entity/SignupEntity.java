@@ -20,6 +20,7 @@ public class SignupEntity {
     private String lastName;
     private String id;
     private String role;
+    private String encryptedToken;
 
     public SignupEntity() throws NoSuchPaddingException, NoSuchAlgorithmException {
 
@@ -100,6 +101,14 @@ public class SignupEntity {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getEncryptedToken() {
+        return encryptedToken;
+    }
+
+    public void setEncryptedToken(String encryptedToken) {
+        this.encryptedToken = encryptedToken;
     }
 
     @Override

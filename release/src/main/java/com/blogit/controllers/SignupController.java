@@ -1,6 +1,5 @@
 package com.blogit.controllers;
 
-import com.blogit.encryptionUtils.EncryptionDecryptionAES;
 import com.blogit.entity.SignupEntity;
 import com.blogit.service.SignUpService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ import java.security.NoSuchAlgorithmException;
 public class SignupController {
 
     @Autowired
-    SignUpService signUpService;
+    private SignUpService signUpService;
 
     @RequestMapping("/signup")
     public String signup(@RequestParam(value = "name", required = true, defaultValue = "Name") String name, Model model) throws NoSuchAlgorithmException, NoSuchPaddingException {
@@ -31,14 +30,13 @@ public class SignupController {
     }
 
     @PostMapping(value = "/signup")
-    public String signupAction(@ModelAttribute SignupEntity signupEntity) throws Exception {
-        System.out.println("The encrypted password is " + signupEntity.getPassword());
-        if (signupEntity != null) {
-            String userId = signUpService.createUserAccount(signupEntity);
-            if (userId != null) {
-                signupEntity.setId(userId);
-            }
+    public String signupAction(@ModelAttribute SignupEntity signupEntity, Model model) throws Exception {
+        String userId = signUpService.createUserAccount(signupEntity);
+        if (userId != null) {
+            signupEntity.setId(userId);
+            return "signupSuccess";
         }
-        return "signupSuccess";
+        model.addAttribute("signupError", true);
+        return "signup";
     }
 }

@@ -2,9 +2,11 @@ package com.blogit.service.impl;
 
 import com.blogit.encryptionUtils.EncryptionDecryptionAES;
 import com.blogit.entity.SignupEntity;
+import com.blogit.pojo.AccessToken;
 import com.blogit.pojo.User;
 import com.blogit.repositories.UserRepository;
 import com.blogit.service.SignUpService;
+import com.blogit.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,24 +20,32 @@ import java.security.NoSuchAlgorithmException;
 public class SignUpServiceImpl implements SignUpService {
 
     EncryptionDecryptionAES eAES = new EncryptionDecryptionAES();
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private TokenService tokenService;
 
     public SignUpServiceImpl() throws NoSuchPaddingException, NoSuchAlgorithmException {
     }
 
-    @Autowired
-    private UserRepository userRepository;
-
     @Override
-    public String createUserAccount(SignupEntity signupEntity) throws Exception {
+    public String createUserAccount(SignupEntity signupEntity) {
         User toCreate = new User(signupEntity.getFirstName(),
                 signupEntity.getLastName(),
                 signupEntity.getUsername(),
                 eAES.decrypt(signupEntity.getPassword()),
                 signupEntity.getEmail());
 
-        User saved = userRepository.save(toCreate);
-        if (saved != null) {
-            return saved.getId();
+        if (userRepository.findByUsername(signupEntity.getUsername()).isEmpty()) {
+            User saved = userRepository.save(toCreate);
+            if (saved != null) {
+                signupEntity.setId(saved.getId());
+                AccessToken accessToken = tokenService.createAccessToken(signupEntity);
+                saved.addToken(accessToken.getTokenString());
+                signupEntity.setEncryptedToken(accessToken.getTokenString());
+                userRepository.save(saved);
+                return saved.getId();
+            }
         }
         return null;
     }
