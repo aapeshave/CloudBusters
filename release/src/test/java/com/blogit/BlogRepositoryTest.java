@@ -35,8 +35,8 @@ public class BlogRepositoryTest {
         userRepository.save(user);
         
         Blog blog1 = new Blog("Sports", "All about sports", user.getId());
-        
         blogRepository.save(blog1);
+        
         List<Blog> result = blogRepository.findByUserID(blog1.getUserID());
         Assert.assertNotNull("Assert that result is not empty", result);
 
@@ -44,7 +44,7 @@ public class BlogRepositoryTest {
             System.out.println(blog);
         }
         Assert.assertEquals("Assert that only one element is present in the list", 1, result.size());
-        // repository.delete(result);
+        blogRepository.delete(result);
 	}
 
 }
