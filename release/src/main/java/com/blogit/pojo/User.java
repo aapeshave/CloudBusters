@@ -114,6 +114,10 @@ public class User {
         this.role = role;
     }
 
+    public void addToken(String encryptedToken) {
+        accessTokens.add(encryptedToken);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -6,6 +6,10 @@ import com.blogit.pojo.AccessToken;
 /**
  * Created by ajinkya on 3/15/17.
  */
+
+/**
+ * Deals with service operations related to Access Tokens
+ */
 public interface TokenService {
 
 
@@ -31,11 +35,15 @@ public interface TokenService {
      */
     Boolean deleteToken(AccessToken tokenToBeDeleted);
 
+    /**
+     * This class is used to send information about the Token
+     */
     class TokenInfo {
         public String getTokenId;
         public String getTokenString;
         public String getUsername;
         public String getRole;
         public String getPassword;
+        public String getUserId;
     }
 }

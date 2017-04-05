@@ -1,6 +1,5 @@
 package com.blogit.controllers;
 
-import com.blogit.encryptionUtils.EncryptionDecryptionAES;
 import com.blogit.entity.SignupEntity;
 import com.blogit.service.SignUpService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,11 +32,9 @@ public class SignupController {
     @PostMapping(value = "/signup")
     public String signupAction(@ModelAttribute SignupEntity signupEntity) throws Exception {
         System.out.println("The encrypted password is " + signupEntity.getPassword());
-        if (signupEntity != null) {
-            String userId = signUpService.createUserAccount(signupEntity);
-            if (userId != null) {
-                signupEntity.setId(userId);
-            }
+        String userId = signUpService.createUserAccount(signupEntity);
+        if (userId != null) {
+            signupEntity.setId(userId);
         }
         return "signupSuccess";
     }

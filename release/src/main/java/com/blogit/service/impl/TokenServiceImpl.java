@@ -70,6 +70,7 @@ public class TokenServiceImpl implements TokenService {
                 .setIssuedAt(now)
                 .setSubject(SUBJECT)
                 .setIssuer(ISSUER)
+                .claim("userId", signupEntity.getId())
                 .claim("username", signupEntity.getUsername())
                 .claim("password", encryptionDecryptionAES.decrypt(signupEntity.getPassword()))
                 .claim("role", persistedToken.getRole())
@@ -80,7 +81,11 @@ public class TokenServiceImpl implements TokenService {
         persistedToken.setTokenString(builder.compact());
         persistedToken.setIssuer(ISSUER);
 
-        persistedToken = tokenRepository.save(persistedToken);
+        try {
+            persistedToken = tokenRepository.save(persistedToken);
+        } catch (Exception e) {
+            log.error(e);
+        }
         return persistedToken;
     }
 
@@ -94,6 +99,7 @@ public class TokenServiceImpl implements TokenService {
             TokenInfo tokenInfo = new TokenInfo();
             tokenInfo.getUsername = (String) claims.get("username");
             tokenInfo.getRole = (String) claims.get("role");
+            tokenInfo.getUserId = (String) claims.get("userId");
             tokenInfo.getPassword = (String) claims.get("password");
             tokenInfo.getTokenString = encryptedTokenString;
             tokenInfo.getTokenId = claims.getId();
