@@ -56,4 +56,13 @@ public class UserRepositoryTest {
 
         repository.delete(user);
     }
+
+    @Test
+    public void testSearchByUsername() throws Exception {
+        User user = new User("Dave", "Matthews", "dave", "admin", "dave@example.com");
+        repository.save(user);
+
+        List users = repository.findByUsername("dave");
+        Assert.assertNotNull(users);
+    }
 }

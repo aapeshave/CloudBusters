@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>Sign up Success</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
@@ -12,7 +12,8 @@
 <p th:text="'blog name: ' + ${signupEntity.blogName}"/>
 <p th:text="'first name: ' + ${signupEntity.firstName}"/>
 <p th:text="'last name: ' + ${signupEntity.lastName}"/>
-<p th:text="'last name: ' + ${signupEntity.id}"/>
+<p th:text="'user id: ' + ${signupEntity.id}"/>
+<p th:text="'encrypted token: ' + ${signupEntity.encryptedToken}"/>
 <a href="/greeting">Signed up successfully!!</a>
 </body>
 </html>

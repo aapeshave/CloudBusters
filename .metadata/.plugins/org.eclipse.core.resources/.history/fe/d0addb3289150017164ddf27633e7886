@@ -1,0 +1,68 @@
+package com.blogdataset.core;
+
+import javax.xml.bind.annotation.*;
+
+/*@XmlRootElement(name = "Blog")
+public class Blog {
+	
+	String date;
+	String post;
+	
+	@XmlElement
+	public String getDate() {
+		return date;
+	}
+	
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
+	@XmlElement
+	public String getPost() {
+		return post;
+	}
+	
+	
+	public void setPost(String post) {
+		this.post = post;
+	}
+	
+	
+} */
+
+@XmlRootElement
+public class Blog {
+
+	String name;
+	int age;
+	int id;
+
+	public String getName() {
+		return name;
+	}
+
+	@XmlElement
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	@XmlElement
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	@XmlAttribute
+	public void setId(int id) {
+		this.id = id;
+	}
+}
+
