@@ -7,7 +7,4 @@ services: mongodb
 before_script:  sleep 15
 env:
   global:
-     -amazon.aws.region= us-east-1
-     -amazon.dynamodb.endpoint= http://dynamodb.us-east-1.amazonaws.com
-     -amazon.aws.accesskey = AKIAIQSM4J3HQOORXW6A
      -secure: kFaVXYW5Ll41Ot1D3BfneBaCw0sWdVBKlNoTSDgPiyn42bGf1dVjyIa8ELK1KlAXjYexs9/HNQBt7nID1LF6OwYj7IOYOacmF0YUJfL35YKG+lJd42pxQ1pz6AC2XIILUmM/LjWbZ0EgL9aAU2UPe0B9xc5+A0bVJBT9WFe7pdCIBw/4g1S0Tz6LKDsP5G6ZG6c+Grcc1etewN5ThhPHmPBluSOTQvAOT3Lu9Qftm4uKNM4dVgXNMWtfEMbhANAxnqpGtzOD5GchKG+xq1VEoTo66XWua0Hr295EtSnKFrlT5/mgtVaSi/lfO0cyLoqzaJzYgTpTRF8qmozF4qLZA3znRdpCZzFqNda70Rbo0b07DnQa+e8+8fg9ld5+uj/emMFNZtKUNhjiVe9+tWvliai2BxFuDgW5CYkV2yiKHsia6dxOuUuH0fvtjGcscVuwsgydUtc3waYGEw7Lmm47QOVpOBc2TRkL2RN1xlhfSPO76z3qv7a2jiFyVb6/YtGyeOVNfCJ8kFOQH5gZ7pxsH0RILwDpvpBYGwNyxeXKwJXRE8A+PRGarnJWH7g/q4AbPdkMEbZZL2WT8wTjDgF9XiZV6EXFJFpwZ9i191Zl0iDqiIhB/BKudK8AN/OjngRxF2Sb5odltba9GfdoTiCysTJOEVIR4kCUNDxZ6x5F7gY=
