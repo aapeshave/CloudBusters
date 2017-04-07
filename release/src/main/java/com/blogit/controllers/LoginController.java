@@ -23,7 +23,7 @@ public class LoginController {
     private LoginService loginService;
 
 
-    @RequestMapping
+    @RequestMapping("/")
     public String index(Model model) throws NoSuchAlgorithmException, NoSuchPaddingException {
         model.addAttribute("loginEntity", new LoginEntity());
         return "login";
