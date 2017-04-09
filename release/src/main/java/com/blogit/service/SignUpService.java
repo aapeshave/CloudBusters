@@ -13,4 +13,5 @@ public interface SignUpService {
      * @return id of the user account created
      */
     String createUserAccount(SignupEntity signupEntity) throws Exception;
+    
 }

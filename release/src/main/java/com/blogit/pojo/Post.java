@@ -18,7 +18,6 @@ public class Post {
 	private String postID;
 	private String content;
 	private List<String> tags;
-	private String postDate;
 	private String blogID;
 	private int numOfViews;
 	private Date createdOn;
@@ -26,14 +25,12 @@ public class Post {
 	
 	public Post() {		
 	}	
-	public Post(String postID, String content, List<String> tags, String postDate, String blogID, int numOfViews) {
+	public Post(String content, String blogID) {
 		this();
-		this.postID = postID;
 		this.content = content;
-		this.tags = tags;
-		this.postDate = postDate;
+		this.createdOn = new Date();
 		this.blogID = blogID;
-		this.numOfViews = numOfViews;
+
 	}
 	
 	@DynamoDBHashKey
@@ -59,14 +56,6 @@ public class Post {
 	}
 	public void setTags(List<String> tags) {
 		this.tags = tags;
-	}
-	
-	@DynamoDBAttribute
-	public String getPostDate() {
-		return postDate;
-	}
-	public void setPostDate(String postDate) {
-		this.postDate = postDate;
 	}
 	
 	@DynamoDBAttribute
@@ -107,7 +96,6 @@ public class Post {
 		result = prime * result + ((blogID == null) ? 0 : blogID.hashCode());
 		result = prime * result + ((content == null) ? 0 : content.hashCode());
 		result = prime * result + numOfViews;
-		result = prime * result + ((postDate == null) ? 0 : postDate.hashCode());
 		result = prime * result + ((postID == null) ? 0 : postID.hashCode());
 		result = prime * result + ((tags == null) ? 0 : tags.hashCode());
 		return result;
@@ -133,11 +121,6 @@ public class Post {
 			return false;
 		if (numOfViews != other.numOfViews)
 			return false;
-		if (postDate == null) {
-			if (other.postDate != null)
-				return false;
-		} else if (!postDate.equals(other.postDate))
-			return false;
 		if (postID == null) {
 			if (other.postID != null)
 				return false;
@@ -152,7 +135,6 @@ public class Post {
 	}
 	@Override
 	public String toString() {
-		return "Post [postID=" + postID + ", content=" + content + ", tags=" + tags + ", postDate=" + postDate
-				+ ", blogID=" + blogID + ", numOfViews=" + numOfViews + "]";
+		return "Post [postID=" + postID + ", content=" + content + ", tags=" + tags + ", blogID=" + blogID + ", numOfViews=" + numOfViews + "]";
 	}
 }
