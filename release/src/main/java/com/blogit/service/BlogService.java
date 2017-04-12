@@ -16,7 +16,7 @@ public interface BlogService {
      * @return id of blog created
      * @throws Exception
      */
-    String createBlog(BlogEntity blogEntity) throws Exception;
+    String createBlog(BlogEntity blogEntity);
 
     /**
      * @param blog Object to be deleted

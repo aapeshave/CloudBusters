@@ -28,14 +28,19 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public String createBlog(BlogEntity blogEntity) throws Exception {
+    public String createBlog(BlogEntity blogEntity) {
         Blog toCreate = new Blog();
         toCreate.setBlogName(blogEntity.getBlogName());
         toCreate.setBlogDescription(blogEntity.getBlogDescription());
         toCreate.setUserID(blogEntity.getUserID());
 
-        blogRepository.save(toCreate);
-        return toCreate.getBlogID();
+        try {
+            blogRepository.save(toCreate);
+            return toCreate.getBlogID();
+        } catch (Exception e) {
+            log.error(e);
+        }
+        return null;
     }
 
     @Override
