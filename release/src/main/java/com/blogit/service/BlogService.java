@@ -11,18 +11,16 @@ import com.blogit.entity.BlogEntity;
  */
 public interface BlogService {
 
-	/**
-	 * @param blogEntity
-	 *            is received from UI
-	 * @return id of blog created
-	 * @throws Exception
-	 */
-	String createBlog(BlogEntity blogEntity) throws Exception;
+    /**
+     * @param blogEntity is received from UI
+     * @return id of blog created
+     * @throws Exception
+     */
+    String createBlog(BlogEntity blogEntity);
 
-	/**
-	 * @param blogToBeDeleted
-	 *            Object to be deleted
-	 * @return true if successfully deleted
-	 */
-	Boolean deleteBlog(String blog);
+    /**
+     * @param blog Object to be deleted
+     * @return true if successfully deleted
+     */
+    Boolean deleteBlog(String blog);
 }
