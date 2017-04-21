@@ -5,8 +5,8 @@
 
 	<groupId>com.blogit</groupId>
 	<artifactId>blogit</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<version>0.0.3-SNAPSHOT</version>
+	<packaging>war</packaging>
 
 	<name>BLOGIT</name>
 	<description>Cloud Computing Project</description>
@@ -63,6 +63,11 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
 			<version>3.1.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
