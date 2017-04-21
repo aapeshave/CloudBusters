@@ -3,6 +3,8 @@ package com.blogit;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.servlet.ViewResolver;
@@ -21,7 +23,7 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
         "com.blogit.repositories",
         "com.blogit.encryptionUtils"
 })
-public class ReleaseApplication {
+public class ReleaseApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(ReleaseApplication.class, args);
@@ -41,6 +43,11 @@ public class ReleaseApplication {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
         viewResolver.setTemplateEngine(templateEngine);
         return viewResolver;
+    }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(ReleaseApplication.class);
     }
 }
 
