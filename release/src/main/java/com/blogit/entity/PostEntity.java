@@ -1,15 +1,16 @@
 package com.blogit.entity;
 
-import java.security.NoSuchAlgorithmException;
-
 import javax.crypto.NoSuchPaddingException;
+import java.security.NoSuchAlgorithmException;
 
 public class PostEntity {
 	
 	private String content;
-	private String blogID;
-	
-	  public PostEntity() throws NoSuchPaddingException, NoSuchAlgorithmException {
+    private String userID;
+    private String blogID;
+    private String postID;
+
+    public PostEntity() throws NoSuchPaddingException, NoSuchAlgorithmException {
 
 	    }
 
@@ -28,5 +29,20 @@ public class PostEntity {
 	public void setBlogID(String blogID) {
 		this.blogID = blogID;
 	}
-	  
+
+    public String getPostID() {
+        return postID;
+    }
+
+    public void setPostID(String postID) {
+        this.postID = postID;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
 }
