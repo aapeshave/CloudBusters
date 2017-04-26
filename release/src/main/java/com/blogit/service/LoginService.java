@@ -11,7 +11,7 @@ public interface LoginService {
      * Validate a user account using signin entity
      *
      * @param loginEntity is received from UI
-     * @return id of the user account created
+     * @return user account created
      */
     User validateUserAccount(LoginEntity loginEntity) throws Exception;
 }

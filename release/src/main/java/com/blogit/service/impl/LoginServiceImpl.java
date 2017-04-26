@@ -18,20 +18,19 @@ import java.security.NoSuchAlgorithmException;
 @Service
 public class LoginServiceImpl implements LoginService{
 
-    EncryptionDecryptionAES eAES = new EncryptionDecryptionAES();
+    private EncryptionDecryptionAES encryptionUtils = new EncryptionDecryptionAES();
+    @Autowired
+    private UserRepository userRepository;
 
     public LoginServiceImpl() throws NoSuchPaddingException, NoSuchAlgorithmException {
     }
-
-    @Autowired
-    private UserRepository userRepository;
 
     public User validateUserAccount(LoginEntity loginEntity) throws Exception
     {
         if(StringUtils.isNotBlank(loginEntity.getUsername()) && StringUtils.isNotBlank(loginEntity.getPassword()))
         {
-            User validate = userRepository.findByUsernameAndPassword(loginEntity.getUsername(), eAES.decrypt(loginEntity.getPassword()));
-            return validate;
+            User validated = userRepository.findByUsernameAndPassword(loginEntity.getUsername(), encryptionUtils.decrypt(loginEntity.getPassword()));
+            return validated;
         }
         return null;
     }
