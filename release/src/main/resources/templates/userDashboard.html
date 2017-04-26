@@ -23,6 +23,7 @@
             integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
             crossorigin="anonymous">
     </script>
+    <script src="../js/blog.js"></script>
 
 </head>
 <body>
@@ -217,33 +218,74 @@
         </div>
 
         <!--Modal for New Blog-->
-        <div class="modal fade" id="blogCreateModal" tabindex="-1" role="dialog" aria-labelledby="CreateBlog">
+        <!--  <div class="modal fade" id="blogCreateModal" tabindex="-1" role="dialog" aria-labelledby="CreateBlog">
+
+             <div class="modal-dialog" role="document">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                 aria-hidden="true">&times;</span></button>
+                         <h4 class="modal-title" id="exampleModalLabel">Let's BLOGIT</h4>
+                     </div>
+                     <div class="modal-body">
+                         <form class="form-blog" id="blogModal" action="#" th:action="@{/blog}" th:object="${BlogEntity}"
+                               method="post">
+
+                             <div class="form-group">
+                                 <label for="Blog_Name" class="control-label">BlogName:</label>
+                                 <input type="text" class="form-control" id="blog-name" th:field="*{blogName}"  value="hello"/>
+                             </div>
+
+                             <div class="form-group">
+                                 <label for="Blog_Description" class="control-label">BlogDescription:</label>
+                                 <textarea class="form-control" id="message-text" rows="20"
+                                           th:field="*{blogDescription}"></textarea>
+                             </div>
+
+                             <div class="modal-footer">
+                                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitblog">Submit Blog</button>
+                             </div>
+
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+  -->
+
+
+        <div class="modal fade" id="blogCreateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+                        <h5 class="modal-title" id="exampleModalLabel">Lets BlogIT</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form id="blogform" action="#" th:action="@{/blog}" th:object="${BlogEntity}"
+                              method="post">
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">Recipient:</label>
-                                <input type="text" class="form-control" id="recipient-name"/>
+                                <label for="recipient-name" class="form-control-label">Blog Name</label>
+                                <input type="text" class="form-control" id="recipient-name" th:field="*{blogName}"/>
                             </div>
                             <div class="form-group">
-                                <label for="message-text" class="control-label">Message:</label>
-                                <textarea class="form-control" id="message-text"></textarea>
+                                <label for="message-text" class="form-control-label">Write Your Blog</label>
+                                <textarea class="form-control" id="message-text" rows="20"
+                                          th:field="*{blogDescription}"></textarea>
                             </div>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" data-dismiss="modal">Submit
+                                Blog
+                            </button>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Send message</button>
                     </div>
                 </div>
             </div>
         </div>
+
+
     </div>
 </div>
 </body>

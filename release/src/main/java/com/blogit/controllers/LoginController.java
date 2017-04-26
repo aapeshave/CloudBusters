@@ -1,5 +1,6 @@
 package com.blogit.controllers;
 
+import com.blogit.entity.BlogEntity;
 import com.blogit.entity.LoginEntity;
 import com.blogit.pojo.User;
 import com.blogit.service.LoginService;
@@ -41,6 +42,7 @@ public class LoginController {
         if (verifiedUser != null) {
             model.addAttribute("user", verifiedUser);
             model.addAttribute("authorizationToken", verifiedUser.authoriationToken());
+            model.addAttribute("BlogEntity", new BlogEntity());
             return "userDashboard";
         }
         model.addAttribute("loginError", true);
