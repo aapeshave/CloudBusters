@@ -1,6 +1,9 @@
 package com.blogit.service;
 
 import com.blogit.entity.BlogEntity;
+import com.blogit.pojo.Blog;
+
+import java.util.List;
 
 /**
  * @author kruti
@@ -23,4 +26,10 @@ public interface BlogService {
      * @return true if successfully deleted
      */
     Boolean deleteBlog(String blog);
+
+    /**
+     * @param userID Retrives all the blogs of given userID
+     * @return true if successfully retrieved
+     */
+    List<Blog> findBlogByUserID(String userID);
 }
