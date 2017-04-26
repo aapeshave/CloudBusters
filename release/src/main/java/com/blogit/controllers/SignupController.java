@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.crypto.NoSuchPaddingException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.security.NoSuchAlgorithmException;
 
 /**
@@ -30,10 +33,15 @@ public class SignupController {
     }
 
     @PostMapping(value = "/signup")
-    public String signupAction(@ModelAttribute SignupEntity signupEntity, Model model) throws Exception {
+    public String signupAction(@ModelAttribute SignupEntity signupEntity, Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
         String userId = signUpService.createUserAccount(signupEntity);
+        HttpSession session = request.getSession();
         if (userId != null) {
             signupEntity.setId(userId);
+            if(session.getAttribute("userId") == null)
+            {
+                session.setAttribute("userId", userId);
+            }
             return "signupSuccess";
         }
         model.addAttribute("signupError", true);
