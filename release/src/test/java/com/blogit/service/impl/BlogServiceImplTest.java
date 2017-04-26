@@ -1,5 +1,10 @@
 package com.blogit.service.impl;
 
+import com.blogit.entity.BlogEntity;
+import com.blogit.pojo.Blog;
+import com.blogit.pojo.User;
+import com.blogit.repositories.UserRepository;
+import com.blogit.service.BlogService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,11 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.blogit.entity.BlogEntity;
-import com.blogit.pojo.User;
-import com.blogit.repositories.BlogRepository;
-import com.blogit.repositories.UserRepository;
-import com.blogit.service.BlogService;
+import java.util.List;
 
 /**
  * 
@@ -37,7 +38,8 @@ public class BlogServiceImplTest {
 		blogEntity.setBlogDescription("This is a test blog desc");
 	}
 
-	@Test
+    //
+    @Test
 	public void createBlog() throws Exception {
 		User user = new User("Test_firstname", "Test_lastname");
 		userRepository.save(user);
@@ -45,7 +47,10 @@ public class BlogServiceImplTest {
 
 		String blog = blogService.createBlog(blogEntity);
 		Assert.assertNotNull("Assert that blog is created", blog);
-	}
+
+        userRepository.delete(user);
+        blogService.deleteBlog(blog);
+    }
 
 	@Test
 	public void deleteBlog() throws Exception {
@@ -55,4 +60,25 @@ public class BlogServiceImplTest {
 		Boolean result = blogService.deleteBlog(blogId);
 		Assert.assertTrue("Assert that token is deleted", result);
 	}
+
+    @Test
+    public void findBlogByUsedID() throws Exception {
+        User user = new User("Test_firstname", "Test_lastname");
+        userRepository.save(user);
+        blogEntity.setUserID(user.getId());
+
+        String blog = blogService.createBlog(blogEntity);
+        Assert.assertNotNull("Assert that blog is created", blog);
+
+        String blog1 = blogService.createBlog(blogEntity);
+        Assert.assertNotNull("Assert that blog1 is created", blog1);
+
+        List<Blog> blogs = blogService.findBlogByUserID(user.getId());
+        Assert.assertFalse("Assert that blogs are returned", blogs.isEmpty());
+
+        userRepository.delete(user);
+        blogService.deleteBlog(blog1);
+        blogService.deleteBlog(blog);
+    }
+
 }

@@ -5,6 +5,7 @@ public class BlogEntity {
     private String blogName;
     private String blogDescription;
     private String userID;
+    private String blogID;
 
     public BlogEntity() {
 
@@ -13,6 +14,14 @@ public class BlogEntity {
     public BlogEntity(String blogName, String userID) {
         this.blogName = blogName;
         this.userID = userID;
+    }
+
+    public String getBlogID() {
+        return blogID;
+    }
+
+    public void setBlogID(String blogID) {
+        this.blogID = blogID;
     }
 
     public String getBlogName() {
