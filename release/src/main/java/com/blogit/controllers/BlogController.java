@@ -4,6 +4,7 @@ import com.blogit.entity.BlogEntity;
 import com.blogit.pojo.Blog;
 import com.blogit.pojo.User;
 import com.blogit.service.BlogService;
+import org.apache.http.HttpResponse;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,9 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.crypto.NoSuchPaddingException;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
@@ -30,8 +33,9 @@ public class BlogController {
     private HttpServletResponse response;
 
     @RequestMapping("/blog")
-    public void blog(Model model) throws NoSuchAlgorithmException, NoSuchPaddingException {
+    public String blog(Model model) throws NoSuchAlgorithmException, NoSuchPaddingException {
         model.addAttribute("blogEntity", new BlogEntity());
+        return "hello";
     }
 
     @PostMapping(value = "/blog")
@@ -48,6 +52,10 @@ public class BlogController {
         } else {
             response.sendRedirect("/login");
         }
+        String blogID = blogService.createBlog(blogEntity);
+        blogEntity.setBlogID(blogID);
+        response.setStatus(200);
+        response.getWriter().write("Blog Created");
     }
 
     @PostMapping(value = "/getBlogList")
@@ -66,6 +74,5 @@ public class BlogController {
         } else {
             response.sendRedirect("/login");
         }
-
     }
 }
