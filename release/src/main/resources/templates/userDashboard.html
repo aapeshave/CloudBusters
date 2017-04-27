@@ -23,6 +23,7 @@
             integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
             crossorigin="anonymous">
     </script>
+    <script src="../js/blog.js"></script>
 
 </head>
 <body>
@@ -45,7 +46,7 @@
                 <li><a href="blog.html"><i class="fa fa-globe"></i> Edit Post</a></li>
                 <li><a href="signup.html"><i class="fa fa-list-ol"></i> Comments</a></li>
                 <li><a href="register.html"><i class="fa fa-font"></i> Reading List</a></li>
-                <li><a data-toggle="modal" data-target="#blogCreateModal"><span class="glyphicon glyphicon-blackboard"
+                <li><a data-toggle="modal" data-target="#blogCreateModal" href="blog.html"><span class="glyphicon glyphicon-blackboard"
                                                                                 aria-hidden="true"></span> Create
                     Blog</a></li>
             </ul>
@@ -80,7 +81,7 @@
                         <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                         <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        <li><a href="/logout"><i class="fa fa-power-off"></i> Log Out</a></li>
                     </ul>
                 </li>
             </ul>
@@ -93,20 +94,16 @@
             <div class="col-sm-9">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h2>Article Title</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet
-                            vulputate.
-                            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit
-                            amet felis
-                            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor
-                            accumsan.
-                            Aliquam in felis sit amet augue.
-                        </p>
-                        <div class="text-center">
-                            <a href="#"><i class="fa fa-plus"></i>Full Story</a>
-                            <a href="#"><i class="fa fa-comment"></i>12 Comments</a>
-                            <a href="#"><i class="fa fa-share"></i>11 Shares</a>
+                        <div class="created"></div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div>
+                            <p id="created">
+
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -114,40 +111,9 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <h2>Article Title</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet
-                            vulputate.
-                            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit
-                            amet felis
-                            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor
-                            accumsan.
-                            Aliquam in felis sit amet augue.
-                        </p>
-                        <div class="text-center">
-                            <a href="#"><i class="fa fa-plus"></i>Full Story</a>
-                            <a href="#"><i class="fa fa-comment"></i>2 Comments</a>
-                            <a href="#"><i class="fa fa-share"></i>211 Shares</a>
-                        </div>
-                    </div>
-                </div>
-                <hr/>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h2>Article Title</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet
-                            vulputate.
-                            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit
-                            amet felis
-                            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor
-                            accumsan.
-                            Aliquam in felis sit amet augue.
-                        </p>
-                        <div class="text-center">
-                            <a href="#"><i class="fa fa-plus"></i>Full Story</a>
-                            <a href="#"><i class="fa fa-comment"></i>7 Comments</a>
-                            <a href="#"><i class="fa fa-share"></i>67 Shares</a>
-                        </div>
+
+                        <div class="created"></div>
+
                     </div>
                 </div>
                 <hr/>
@@ -215,35 +181,39 @@
                 </div>
             </div> -->
         </div>
-
-        <!--Modal for New Blog-->
-        <div class="modal fade" id="blogCreateModal" tabindex="-1" role="dialog" aria-labelledby="CreateBlog">
+        <div class="modal fade" id="blogCreateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+                        <h5 class="modal-title" id="exampleModalLabel">Lets BlogIT</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form id="blogform" action="#" th:action="@{/blog}" th:object="${blogEntity}"
+                              method="post">
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">Recipient:</label>
-                                <input type="text" class="form-control" id="recipient-name"/>
+                                <label for="recipient-name" class="form-control-label">Blog Name</label>
+                                <input type="text" class="form-control" id="recipient-name" th:field="*{blogName}"/>
                             </div>
                             <div class="form-group">
-                                <label for="message-text" class="control-label">Message:</label>
-                                <textarea class="form-control" id="message-text"></textarea>
+                                <label for="message-text" class="form-control-label">Write Your Blog</label>
+                                <textarea class="form-control" id="message-text" rows="20"
+                                          th:field="*{blogDescription}"></textarea>
                             </div>
+                            <button class="btn btn-lg btn-primary btn-block" id="submit_blog_create" data-dismiss="modal">Submit
+                                Blog
+                            </button>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Send message</button>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
     </div>
 </div>
 </body>
