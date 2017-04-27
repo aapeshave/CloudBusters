@@ -15,6 +15,7 @@
 <p th:text="'user id: ' + ${signupEntity.id}"/>
 <p th:text="'encrypted token: ' + ${signupEntity.encryptedToken}"/>
 <p th:text="'blog id: ' + ${signupEntity.blogId}"/>
-<a href="/greeting">Signed up successfully!!</a>
+<p>Signed up successfully. Please Logout and Log back in to start blogging</p>
+<a href="/logout">Logout</a>
 </body>
 </html>
