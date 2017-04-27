@@ -10,13 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.crypto.NoSuchPaddingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @Controller
@@ -24,20 +21,10 @@ public class BlogController {
 
     @Autowired
     private BlogService blogService;
-    private BlogEntity blogEntity;
-    private Model model;
-    private HttpServletRequest request;
-    private HttpServletResponse response;
 
-    @RequestMapping("/blog")
-    public String blog(Model model) throws NoSuchAlgorithmException, NoSuchPaddingException {
-        model.addAttribute("blogEntity", new BlogEntity());
-        return "hello";
-    }
 
     @PostMapping(value = "/blog")
     public void blogAction(@ModelAttribute BlogEntity blogEntity,
-                           Model model,
                            HttpServletRequest request,
                            HttpServletResponse response) throws Exception {
         HttpSession session = request.getSession();
@@ -57,7 +44,6 @@ public class BlogController {
 
     @PostMapping(value = "/getBlogList")
     public void getBlogList(@ModelAttribute BlogEntity blogEntity,
-                            Model model,
                             HttpServletRequest request,
                             HttpServletResponse response) throws Exception {
         HttpSession session = request.getSession();

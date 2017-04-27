@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.crypto.NoSuchPaddingException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.security.NoSuchAlgorithmException;
 
 /**
@@ -37,12 +39,15 @@ public class LoginController {
     }
 
     @PostMapping(value = "/login")
-    public String loginAction(@ModelAttribute LoginEntity loginEntity, Model model) throws Exception {
+    public String loginAction(@ModelAttribute LoginEntity loginEntity, Model model, HttpServletRequest request) throws Exception {
         User verifiedUser = loginService.validateUserAccount(loginEntity);
+        HttpSession session = request.getSession();
         if (verifiedUser != null) {
             model.addAttribute("user", verifiedUser);
             model.addAttribute("authorizationToken", verifiedUser.authoriationToken());
             model.addAttribute("blogEntity", new BlogEntity());
+            session.setAttribute("user", verifiedUser);
+            session.setAttribute("authorizationToken", verifiedUser.authoriationToken());
             return "userDashboard";
         }
         model.addAttribute("loginError", true);

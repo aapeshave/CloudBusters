@@ -9,7 +9,7 @@ $(document).ready(function () {
             url: "/blog",
             data: $("#blogform").serialize(),
                 success: function(data) {
-                    $('#created').html(response);
+                    $('#created').html(data);
                 alert(data);
             }
         });
@@ -17,6 +17,5 @@ $(document).ready(function () {
         });
         $('#blogform').submit();
     });
-
 
 });
