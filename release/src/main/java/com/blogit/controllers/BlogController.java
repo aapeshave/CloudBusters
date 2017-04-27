@@ -48,16 +48,12 @@ public class BlogController {
                             HttpServletRequest request,
                             HttpServletResponse response) throws Exception {
         HttpSession session = request.getSession();
-        String userId = (String) session.getAttribute("userId");
-        if (userId != null) {
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
             Gson gson = new Gson();
-            if (model.containsAttribute("user")) {
-                Map modelMap = model.asMap();
-                User user = (User) modelMap.get("user");
-                List<Blog> blogByUserID = blogService.findBlogByUserID(user.getId());
-                if (blogByUserID != null) {
-                    response.getWriter().write(gson.toJson(blogByUserID));
-                }
+            List<Blog> blogByUserID = blogService.findBlogByUserID(user.getId());
+            if (blogByUserID != null) {
+                response.getWriter().write(gson.toJson(blogByUserID));
             }
         } else {
             response.sendRedirect("/login");
