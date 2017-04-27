@@ -3,81 +3,293 @@
   <ID>JAVA</ID>
   <OriginalElement>com.blogit</OriginalElement>
   <nodes>
-    <node x="1376.25" y="406.0">com.blogit.service.LoginService</node>
-    <node x="394.0" y="735.0">com.blogit.pojo.Post</node>
-    <node x="0.0" y="1444.0">com.blogit.controllers.SignupController</node>
-    <node x="876.75" y="572.8153642936998">com.blogit.service.impl</node>
-    <node x="798.25" y="395.0">com.blogit.service.PostService</node>
-    <node x="568.0" y="0.0">com.blogit.pojo.User</node>
-    <node x="0.0" y="735.0">com.blogit.pojo.Blog</node>
-    <node x="664.0" y="1281.0">com.blogit.AccessTokenRepositoryTest</node>
-    <node x="335.0" y="1281.0">com.blogit.controllers.LoginController</node>
-    <node x="858.0" y="1585.0">com.blogit.repositories.PostRepository</node>
-    <node x="334.0" y="1444.0">com.blogit.controllers.BlogController</node>
-    <node x="1281.0" y="1444.0">com.blogit.ReleaseApplication</node>
-    <node x="1129.0" y="1281.0">com.blogit.BlogRepositoryTest</node>
-    <node x="466.0" y="1030.0">com.blogit.entity.LoginEntity</node>
-    <node x="1129.0" y="1030.0">com.blogit.PostRepositoryTest</node>
-    <node x="634.0" y="1444.0">com.blogit.repositories.UserRepository</node>
-    <node x="874.0" y="1030.0">com.blogit.encryptionUtils.EncryptionDecryptionAES</node>
-    <node x="547.0" y="1585.0">com.blogit.repositories.BlogRepository</node>
-    <node x="779.0" y="735.0">com.blogit.pojo.AccessToken</node>
-    <node x="0.0" y="1585.0">com.blogit.entity.PostEntity</node>
-    <node x="38.25" y="384.0">com.blogit.service.TokenService</node>
-    <node x="0.0" y="529.0">com.blogit.service.TokenService.TokenInfo</node>
-    <node x="0.0" y="1030.0">com.blogit.configuration.DynamoDbConfiguration</node>
-    <node x="197.0" y="1585.0">com.blogit.repositories.AccessTokensRepository</node>
-    <node x="0.0" y="1281.0">com.blogit.UserRepositoryTest</node>
-    <node x="1168.0" y="1585.0">com.blogit.ReleaseApplicationTests</node>
-    <node x="1087.25" y="395.0">com.blogit.service.BlogService</node>
-    <node x="1006.0" y="1444.0">com.blogit.entity.BlogEntity</node>
-    <node x="0.0" y="0.0">com.blogit.entity.SignupEntity</node>
-    <node x="461.25" y="406.0">com.blogit.service.SignUpService</node>
+    <node x="3457.860698924731" y="344.0">com.blogit.service.LoginService</node>
+    <node x="1766.9006989247312" y="244.5">com.blogit.pojo.Post</node>
+    <node x="5528.959301075269" y="810.0">com.blogit.controllers.SignupController</node>
+    <node x="2807.3806989247314" y="843.5">com.blogit.service.impl</node>
+    <node x="2430.3806989247314" y="333.0">com.blogit.service.PostService</node>
+    <node x="1112.9006989247312" y="244.5">com.blogit.pojo.Blog</node>
+    <node x="13.900698924731387" y="211.5">com.blogit.pojo.User</node>
+    <node x="4571.2798655913975" y="810.0">com.blogit.AccessTokenRepositoryTest</node>
+    <node x="3632.1475" y="799.0">com.blogit.controllers.LoginController</node>
+    <node x="1481.9006989247312" y="344.0">com.blogit.repositories.PostRepository</node>
+    <node x="466.0" y="962.0">com.blogit.ReleaseApplication</node>
+    <node x="3050.194032258065" y="810.0">com.blogit.controllers.BlogController</node>
+    <node x="401.625" y="810.0">com.blogit.BlogRepositoryTest</node>
+    <node x="5045.860698924731" y="288.0">com.blogit.entity.LoginEntity</node>
+    <node x="963.6506989247309" y="799.0">com.blogit.PostRepositoryTest</node>
+    <node x="479.9006989247314" y="322.0">com.blogit.repositories.UserRepository</node>
+    <node x="3886.1434677419356" y="0.0">com.blogit.encryptionUtils.EncryptionDecryptionAES</node>
+    <node x="826.9006989247312" y="344.0">com.blogit.repositories.BlogRepository</node>
+    <node x="2141.390698924731" y="22.5">com.blogit.service.TokenService</node>
+    <node x="4654.860698924731" y="255.5">com.blogit.pojo.AccessToken</node>
+    <node x="2126.900698924731" y="289.0">com.blogit.service.TokenService.TokenInfo</node>
+    <node x="2719.3806989247314" y="311.0">com.blogit.entity.PostEntity</node>
+    <node x="0.0" y="962.0">com.blogit.configuration.DynamoDbConfiguration</node>
+    <node x="735.0" y="962.0">com.blogit.ReleaseApplicationTests</node>
+    <node x="0.0" y="799.0">com.blogit.UserRepositoryTest</node>
+    <node x="4329.860698924731" y="344.0">com.blogit.repositories.AccessTokensRepository</node>
+    <node x="2936.860698924731" y="322.0">com.blogit.service.BlogService</node>
+    <node x="3786.860698924731" y="200.0">com.blogit.entity.SignupEntity</node>
+    <node x="5507.959301075269" y="344.0">com.blogit.service.SignUpService</node>
+    <node x="3245.860698924731" y="311.0">com.blogit.entity.BlogEntity</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="com.blogit.service.impl" target="com.blogit.service.PostService">
-      <point x="0.0" y="-14.5" />
-      <point x="0.0" y="36.5" />
+    <edge source="com.blogit.BlogRepositoryTest" target="com.blogit.repositories.UserRepository">
+      <point x="-37.375" y="-48.0" />
+      <point x="513.75" y="729.0" />
+      <point x="602.5256989247314" y="729.0" />
+      <point x="-40.875" y="47.5" />
     </edge>
-    <edge source="com.blogit.service.impl" target="com.blogit.service.SignUpService">
-      <point x="-22.399999999999977" y="-14.5" />
-      <point x="910.35" y="499.0" />
-      <point x="619.75" y="499.0" />
+    <edge source="com.blogit.service.impl" target="com.blogit.repositories.PostRepository">
+      <point x="-35.840000000000146" y="-14.5" />
+      <point x="2827.5406989247313" y="629.0" />
+      <point x="1680.6506989247312" y="629.0" />
+      <point x="66.25" y="25.5" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.service.TokenService.TokenInfo">
+      <point x="-26.88000000000011" y="-14.5" />
+      <point x="2836.5006989247313" y="609.0" />
+      <point x="2265.900698924731" y="609.0" />
+      <point x="0.0" y="80.5" />
+    </edge>
+    <edge source="com.blogit.BlogRepositoryTest" target="com.blogit.pojo.User">
+      <point x="-112.125" y="-48.0" />
+      <point x="439.0" y="709.0" />
+      <point x="181.1506989247314" y="709.0" />
+      <point x="-55.75" y="158.0" />
+    </edge>
+    <edge source="com.blogit.PostRepositoryTest" target="com.blogit.pojo.User">
+      <point x="-133.33333333333337" y="-59.0" />
+      <point x="990.3173655913974" y="699.0" />
+      <point x="292.6506989247314" y="699.0" />
+      <point x="55.75" y="158.0" />
+    </edge>
+    <edge source="com.blogit.BlogRepositoryTest" target="com.blogit.repositories.BlogRepository">
+      <point x="37.375" y="-48.0" />
+      <point x="588.5" y="739.0" />
+      <point x="871.2340322580644" y="739.0" />
+      <point x="-88.66666666666663" y="25.5" />
+    </edge>
+    <edge source="com.blogit.UserRepositoryTest" target="com.blogit.pojo.User">
+      <point x="-72.5" y="-59.0" />
+      <point x="72.5" y="779.0" />
+      <point x="69.65069892473139" y="779.0" />
+      <point x="-167.25" y="158.0" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.repositories.UserRepository">
+      <point x="-49.2800000000002" y="-14.5" />
+      <point x="2814.1006989247308" y="659.0" />
+      <point x="766.0256989247314" y="659.0" />
+      <point x="122.625" y="47.5" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.pojo.Post">
+      <point x="-31.360000000000127" y="-14.5" />
+      <point x="2832.020698924731" y="619.0" />
+      <point x="2021.9006989247312" y="619.0" />
+      <point x="85.0" y="125.0" />
+    </edge>
+    <edge source="com.blogit.entity.LoginEntity" target="com.blogit.encryptionUtils.EncryptionDecryptionAES">
+      <point x="-90.75" y="-81.5" />
+      <point x="5136.610698924731" y="170.0" />
+      <point x="4043.6434677419356" y="170.0" />
+      <point x="52.5" y="70.0" />
+    </edge>
+    <edge source="com.blogit.PostRepositoryTest" target="com.blogit.repositories.BlogRepository">
+      <point x="-26.666666666666742" y="-59.0" />
+      <point x="1096.9840322580642" y="679.0" />
+      <point x="959.9006989247312" y="679.0" />
       <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.service.PostService">
+      <point x="-13.440000000000055" y="-14.5" />
+      <point x="2849.940698924731" y="579.0" />
+      <point x="2497.6306989247314" y="579.0" />
+      <point x="-67.25" y="36.5" />
+    </edge>
+    <edge source="com.blogit.controllers.LoginController" target="com.blogit.service.LoginService">
+      <point x="0.0" y="-59.0" />
+      <point x="3774.1475" y="719.0" />
+      <point x="3689.610698924731" y="719.0" />
+      <point x="77.25" y="25.5" />
+    </edge>
+    <edge source="com.blogit.UserRepositoryTest" target="com.blogit.repositories.UserRepository">
+      <point x="72.5" y="-59.0" />
+      <point x="217.5" y="719.0" />
+      <point x="520.7756989247314" y="719.0" />
+      <point x="-122.625" y="47.5" />
+    </edge>
+    <edge source="com.blogit.BlogRepositoryTest" target="com.blogit.pojo.Blog">
+      <point x="112.125" y="-48.0" />
+      <point x="663.25" y="749.0" />
+      <point x="1171.067365591398" y="749.0" />
+      <point x="-116.33333333333326" y="125.0" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.pojo.Blog">
+      <point x="-40.320000000000164" y="-14.5" />
+      <point x="2823.060698924731" y="639.0" />
+      <point x="1403.7340322580644" y="639.0" />
+      <point x="116.33333333333326" y="125.0" />
     </edge>
     <edge source="com.blogit.service.TokenService.TokenInfo" target="com.blogit.service.TokenService">
       <point x="0.0" y="-80.5" />
-      <point x="-100.75" y="47.5" />
+      <point x="2265.900698924731" y="180.0" />
+      <point x="2208.5573655913977" y="180.0" />
+      <point x="-134.33333333333348" y="47.5" />
     </edge>
-    <edge source="com.blogit.service.impl" target="com.blogit.service.BlogService">
-      <point x="22.399999999999977" y="-14.5" />
-      <point x="955.15" y="499.0" />
-      <point x="1221.75" y="499.0" />
-      <point x="0.0" y="36.5" />
+    <edge source="com.blogit.AccessTokenRepositoryTest" target="com.blogit.repositories.AccessTokensRepository">
+      <point x="-105.0" y="-48.0" />
+      <point x="4676.2798655913975" y="749.0" />
+      <point x="4558.610698924731" y="749.0" />
+      <point x="76.25" y="25.5" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.repositories.AccessTokensRepository">
+      <point x="44.80000000000018" y="-14.5" />
+      <point x="2908.1806989247316" y="749.0" />
+      <point x="4406.110698924731" y="749.0" />
+      <point x="-76.25" y="25.5" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.entity.BlogEntity">
+      <point x="22.40000000000009" y="-14.5" />
+      <point x="2885.780698924731" y="699.0" />
+      <point x="3277.860698924731" y="699.0" />
+      <point x="-64.0" y="58.5" />
+    </edge>
+    <edge source="com.blogit.controllers.LoginController" target="com.blogit.entity.LoginEntity">
+      <point x="94.66666666666652" y="-59.0" />
+      <point x="3868.8141666666666" y="769.0" />
+      <point x="5227.360698924731" y="769.0" />
+      <point x="0.0" y="81.5" />
+    </edge>
+    <edge source="com.blogit.entity.SignupEntity" target="com.blogit.encryptionUtils.EncryptionDecryptionAES">
+      <point x="-130.75" y="-169.5" />
+      <point x="3917.610698924731" y="180.0" />
+      <point x="3973.6434677419356" y="180.0" />
+      <point x="-17.5" y="70.0" />
+    </edge>
+    <edge source="com.blogit.PostRepositoryTest" target="com.blogit.repositories.PostRepository">
+      <point x="80.0" y="-59.0" />
+      <point x="1203.650698924731" y="769.0" />
+      <point x="1548.1506989247312" y="769.0" />
+      <point x="-66.25" y="25.5" />
+    </edge>
+    <edge source="com.blogit.controllers.SignupController" target="com.blogit.service.SignUpService">
+      <point x="72.25" y="-48.0" />
+      <point x="79.25" y="25.5" />
+    </edge>
+    <edge source="com.blogit.controllers.SignupController" target="com.blogit.entity.SignupEntity">
+      <point x="-72.25" y="-48.0" />
+      <point x="5601.209301075269" y="739.0" />
+      <point x="4222.694032258064" y="739.0" />
+      <point x="174.33333333333303" y="169.5" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.pojo.AccessToken">
+      <point x="49.2800000000002" y="-14.5" />
+      <point x="2912.660698924731" y="759.0" />
+      <point x="4747.610698924731" y="759.0" />
+      <point x="-92.75" y="114.0" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.pojo.User">
+      <point x="-53.76000000000022" y="-14.5" />
+      <point x="2809.620698924731" y="669.0" />
+      <point x="404.1506989247314" y="669.0" />
+      <point x="167.25" y="158.0" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.repositories.BlogRepository">
+      <point x="-44.80000000000018" y="-14.5" />
+      <point x="2818.580698924731" y="649.0" />
+      <point x="1048.567365591398" y="649.0" />
+      <point x="88.66666666666674" y="25.5" />
     </edge>
     <edge source="com.blogit.service.impl" target="com.blogit.service.LoginService">
-      <point x="44.799999999999955" y="-14.5" />
-      <point x="977.55" y="509.0" />
-      <point x="1530.75" y="509.0" />
-      <point x="0.0" y="25.5" />
+      <point x="31.360000000000127" y="-14.5" />
+      <point x="2894.740698924731" y="719.0" />
+      <point x="3535.110698924731" y="719.0" />
+      <point x="-77.25" y="25.5" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.encryptionUtils.EncryptionDecryptionAES">
+      <point x="4.480000000000018" y="-14.5" />
+      <point x="2867.860698924731" y="659.0" />
+      <point x="2921.8806989247314" y="659.0" />
+      <point x="2921.8806989247314" y="160.0" />
+      <point x="3903.6434677419356" y="160.0" />
+      <point x="-87.5" y="70.0" />
+    </edge>
+    <edge source="com.blogit.AccessTokenRepositoryTest" target="com.blogit.pojo.AccessToken">
+      <point x="105.0" y="-48.0" />
+      <point x="4886.2798655913975" y="759.0" />
+      <point x="4933.110698924731" y="759.0" />
+      <point x="92.75" y="114.0" />
+    </edge>
+    <edge source="com.blogit.controllers.LoginController" target="com.blogit.entity.BlogEntity">
+      <point x="-94.66666666666652" y="-59.0" />
+      <point x="3679.4808333333335" y="709.0" />
+      <point x="3405.860698924731" y="709.0" />
+      <point x="64.0" y="58.5" />
+    </edge>
+    <edge source="com.blogit.PostRepositoryTest" target="com.blogit.repositories.UserRepository">
+      <point x="-80.0" y="-59.0" />
+      <point x="1043.650698924731" y="689.0" />
+      <point x="684.2756989247314" y="689.0" />
+      <point x="40.875" y="47.5" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.entity.SignupEntity">
+      <point x="35.840000000000146" y="-14.5" />
+      <point x="2899.2206989247316" y="729.0" />
+      <point x="3874.027365591398" y="729.0" />
+      <point x="-174.33333333333348" y="169.5" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.entity.PostEntity">
+      <point x="-4.480000000000018" y="-14.5" />
+      <point x="2858.900698924731" y="559.0" />
+      <point x="2767.3806989247314" y="559.0" />
+      <point x="-48.0" y="58.5" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.service.SignUpService">
+      <point x="53.76000000000022" y="-14.5" />
+      <point x="2917.1406989247316" y="779.0" />
+      <point x="5587.209301075269" y="779.0" />
+      <point x="-79.25" y="25.5" />
+    </edge>
+    <edge source="com.blogit.controllers.BlogController" target="com.blogit.service.BlogService">
+      <point x="0.0" y="-48.0" />
+      <point x="96.33333333333348" y="47.5" />
+    </edge>
+    <edge source="com.blogit.PostRepositoryTest" target="com.blogit.pojo.Blog">
+      <point x="26.666666666666742" y="-59.0" />
+      <point x="1150.3173655913977" y="759.0" />
+      <point x="1287.4006989247312" y="759.0" />
+      <point x="0.0" y="125.0" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.service.BlogService">
+      <point x="13.440000000000055" y="-14.5" />
+      <point x="2876.820698924731" y="679.0" />
+      <point x="2985.027365591398" y="679.0" />
+      <point x="-96.33333333333348" y="47.5" />
     </edge>
     <edge source="com.blogit.service.impl" target="com.blogit.service.TokenService">
-      <point x="-44.799999999999955" y="-14.5" />
-      <point x="887.95" y="509.0" />
-      <point x="340.5" y="509.0" />
-      <point x="100.75" y="47.5" />
+      <point x="-22.40000000000009" y="-14.5" />
+      <point x="2840.980698924731" y="599.0" />
+      <point x="2415.400698924731" y="599.0" />
+      <point x="2415.400698924731" y="180.0" />
+      <point x="2342.890698924731" y="180.0" />
+      <point x="0.0" y="47.5" />
+    </edge>
+    <edge source="com.blogit.PostRepositoryTest" target="com.blogit.pojo.Post">
+      <point x="133.33333333333326" y="-59.0" />
+      <point x="1256.9840322580642" y="779.0" />
+      <point x="1851.9006989247312" y="779.0" />
+      <point x="-85.0" y="125.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.4847184465882095" x="721.188719334408" y="632.7594439879865" />
-  <SelectedNodes>
-    <node>com.blogit.controllers.SignupController</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="0.3784391384165641" x="2287.339253782477" y="652.1277167120057" />
+  <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
-    <Category>Methods</Category>
     <Category>Inner Classes</Category>
     <Category>Properties</Category>
+    <Category>Methods</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
