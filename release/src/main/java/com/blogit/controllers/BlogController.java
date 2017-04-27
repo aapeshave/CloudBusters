@@ -18,13 +18,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class BlogController {
 
     @Autowired
     private BlogService blogService;
+    private BlogEntity blogEntity;
+    private Model model;
+    private HttpServletRequest request;
+    private HttpServletResponse response;
 
     @RequestMapping("/blog")
     public String blog(Model model) throws NoSuchAlgorithmException, NoSuchPaddingException {
@@ -33,11 +36,18 @@ public class BlogController {
     }
 
     @PostMapping(value = "/blog")
-    public void blogAction(@ModelAttribute BlogEntity blogEntity, Model model, HttpServletResponse response) throws Exception {
-        if (model.containsAttribute("user")) {
-            Map modelMap = model.asMap();
-            User user = (User) modelMap.get("user");
+    public void blogAction(@ModelAttribute BlogEntity blogEntity,
+                           Model model,
+                           HttpServletRequest request,
+                           HttpServletResponse response) throws Exception {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
             blogEntity.setUserID(user.getId());
+            String blogID = blogService.createBlog(blogEntity);
+            blogEntity.setBlogID(blogID);
+        } else {
+            response.sendRedirect("/login");
         }
         String blogID = blogService.createBlog(blogEntity);
         blogEntity.setBlogID(blogID);
@@ -61,6 +71,5 @@ public class BlogController {
         } else {
             response.sendRedirect("/login");
         }
-
     }
 }
