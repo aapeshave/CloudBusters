@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.blogit</OriginalElement>
+  <nodes>
+    <node x="1376.25" y="406.0">com.blogit.service.LoginService</node>
+    <node x="394.0" y="735.0">com.blogit.pojo.Post</node>
+    <node x="0.0" y="1444.0">com.blogit.controllers.SignupController</node>
+    <node x="876.75" y="572.8153642936998">com.blogit.service.impl</node>
+    <node x="798.25" y="395.0">com.blogit.service.PostService</node>
+    <node x="568.0" y="0.0">com.blogit.pojo.User</node>
+    <node x="0.0" y="735.0">com.blogit.pojo.Blog</node>
+    <node x="664.0" y="1281.0">com.blogit.AccessTokenRepositoryTest</node>
+    <node x="335.0" y="1281.0">com.blogit.controllers.LoginController</node>
+    <node x="858.0" y="1585.0">com.blogit.repositories.PostRepository</node>
+    <node x="334.0" y="1444.0">com.blogit.controllers.BlogController</node>
+    <node x="1281.0" y="1444.0">com.blogit.ReleaseApplication</node>
+    <node x="1129.0" y="1281.0">com.blogit.BlogRepositoryTest</node>
+    <node x="466.0" y="1030.0">com.blogit.entity.LoginEntity</node>
+    <node x="1129.0" y="1030.0">com.blogit.PostRepositoryTest</node>
+    <node x="634.0" y="1444.0">com.blogit.repositories.UserRepository</node>
+    <node x="874.0" y="1030.0">com.blogit.encryptionUtils.EncryptionDecryptionAES</node>
+    <node x="547.0" y="1585.0">com.blogit.repositories.BlogRepository</node>
+    <node x="779.0" y="735.0">com.blogit.pojo.AccessToken</node>
+    <node x="0.0" y="1585.0">com.blogit.entity.PostEntity</node>
+    <node x="38.25" y="384.0">com.blogit.service.TokenService</node>
+    <node x="0.0" y="529.0">com.blogit.service.TokenService.TokenInfo</node>
+    <node x="0.0" y="1030.0">com.blogit.configuration.DynamoDbConfiguration</node>
+    <node x="197.0" y="1585.0">com.blogit.repositories.AccessTokensRepository</node>
+    <node x="0.0" y="1281.0">com.blogit.UserRepositoryTest</node>
+    <node x="1168.0" y="1585.0">com.blogit.ReleaseApplicationTests</node>
+    <node x="1087.25" y="395.0">com.blogit.service.BlogService</node>
+    <node x="1006.0" y="1444.0">com.blogit.entity.BlogEntity</node>
+    <node x="0.0" y="0.0">com.blogit.entity.SignupEntity</node>
+    <node x="461.25" y="406.0">com.blogit.service.SignUpService</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.blogit.service.impl" target="com.blogit.service.PostService">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.service.SignUpService">
+      <point x="-22.399999999999977" y="-14.5" />
+      <point x="910.35" y="499.0" />
+      <point x="619.75" y="499.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="com.blogit.service.TokenService.TokenInfo" target="com.blogit.service.TokenService">
+      <point x="0.0" y="-80.5" />
+      <point x="-100.75" y="47.5" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.service.BlogService">
+      <point x="22.399999999999977" y="-14.5" />
+      <point x="955.15" y="499.0" />
+      <point x="1221.75" y="499.0" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.service.LoginService">
+      <point x="44.799999999999955" y="-14.5" />
+      <point x="977.55" y="509.0" />
+      <point x="1530.75" y="509.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="com.blogit.service.impl" target="com.blogit.service.TokenService">
+      <point x="-44.799999999999955" y="-14.5" />
+      <point x="887.95" y="509.0" />
+      <point x="340.5" y="509.0" />
+      <point x="100.75" y="47.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.4847184465882095" x="721.188719334408" y="632.7594439879865" />
+  <SelectedNodes>
+    <node>com.blogit.controllers.SignupController</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
