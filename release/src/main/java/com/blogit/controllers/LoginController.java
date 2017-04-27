@@ -42,7 +42,7 @@ public class LoginController {
         if (verifiedUser != null) {
             model.addAttribute("user", verifiedUser);
             model.addAttribute("authorizationToken", verifiedUser.authoriationToken());
-            model.addAttribute("BlogEntity", new BlogEntity());
+            model.addAttribute("blogEntity", new BlogEntity());
             return "userDashboard";
         }
         model.addAttribute("loginError", true);

@@ -1,11 +1,22 @@
 $(document).ready(function () {
 
+    $('#submit_blog_create').on('click', function () {
 
-    $("button").click(function () {
-        alert("hey");
-        $("form").submit(function () {
-            alert("Submitted");
+        $("#blogform").submit(function (event) {
+            alert("Handler for .submit() called.");
+            $.ajax({
+                type: "POST",
+            url: "/blog",
+            data: $("#blogform").serialize(),
+                success: function(data) {
+                    $('#created').html(response);
+                alert(data);
+            }
         });
-        $("form").submit();
+            event.preventDefault();
+        });
+        $('#blogform').submit();
     });
+
+
 });

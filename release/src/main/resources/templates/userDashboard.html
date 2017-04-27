@@ -46,7 +46,7 @@
                 <li><a href="blog.html"><i class="fa fa-globe"></i> Edit Post</a></li>
                 <li><a href="signup.html"><i class="fa fa-list-ol"></i> Comments</a></li>
                 <li><a href="register.html"><i class="fa fa-font"></i> Reading List</a></li>
-                <li><a data-toggle="modal" data-target="#blogCreateModal"><span class="glyphicon glyphicon-blackboard"
+                <li><a data-toggle="modal" data-target="#blogCreateModal" href="blog.html"><span class="glyphicon glyphicon-blackboard"
                                                                                 aria-hidden="true"></span> Create
                     Blog</a></li>
             </ul>
@@ -94,20 +94,16 @@
             <div class="col-sm-9">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h2>Article Title</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet
-                            vulputate.
-                            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit
-                            amet felis
-                            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor
-                            accumsan.
-                            Aliquam in felis sit amet augue.
-                        </p>
-                        <div class="text-center">
-                            <a href="#"><i class="fa fa-plus"></i>Full Story</a>
-                            <a href="#"><i class="fa fa-comment"></i>12 Comments</a>
-                            <a href="#"><i class="fa fa-share"></i>11 Shares</a>
+                        <div class="created"></div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div>
+                            <p id="created">
+
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -115,40 +111,9 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <h2>Article Title</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet
-                            vulputate.
-                            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit
-                            amet felis
-                            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor
-                            accumsan.
-                            Aliquam in felis sit amet augue.
-                        </p>
-                        <div class="text-center">
-                            <a href="#"><i class="fa fa-plus"></i>Full Story</a>
-                            <a href="#"><i class="fa fa-comment"></i>2 Comments</a>
-                            <a href="#"><i class="fa fa-share"></i>211 Shares</a>
-                        </div>
-                    </div>
-                </div>
-                <hr/>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h2>Article Title</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet
-                            vulputate.
-                            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit
-                            amet felis
-                            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor
-                            accumsan.
-                            Aliquam in felis sit amet augue.
-                        </p>
-                        <div class="text-center">
-                            <a href="#"><i class="fa fa-plus"></i>Full Story</a>
-                            <a href="#"><i class="fa fa-comment"></i>7 Comments</a>
-                            <a href="#"><i class="fa fa-share"></i>67 Shares</a>
-                        </div>
+
+                        <div class="created"></div>
+
                     </div>
                 </div>
                 <hr/>
@@ -216,44 +181,6 @@
                 </div>
             </div> -->
         </div>
-
-        <!--Modal for New Blog-->
-        <!--  <div class="modal fade" id="blogCreateModal" tabindex="-1" role="dialog" aria-labelledby="CreateBlog">
-
-             <div class="modal-dialog" role="document">
-                 <div class="modal-content">
-                     <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                 aria-hidden="true">&times;</span></button>
-                         <h4 class="modal-title" id="exampleModalLabel">Let's BLOGIT</h4>
-                     </div>
-                     <div class="modal-body">
-                         <form class="form-blog" id="blogModal" action="#" th:action="@{/blog}" th:object="${BlogEntity}"
-                               method="post">
-
-                             <div class="form-group">
-                                 <label for="Blog_Name" class="control-label">BlogName:</label>
-                                 <input type="text" class="form-control" id="blog-name" th:field="*{blogName}"  value="hello"/>
-                             </div>
-
-                             <div class="form-group">
-                                 <label for="Blog_Description" class="control-label">BlogDescription:</label>
-                                 <textarea class="form-control" id="message-text" rows="20"
-                                           th:field="*{blogDescription}"></textarea>
-                             </div>
-
-                             <div class="modal-footer">
-                                 <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitblog">Submit Blog</button>
-                             </div>
-
-                         </form>
-                     </div>
-                 </div>
-             </div>
-         </div>
-  -->
-
-
         <div class="modal fade" id="blogCreateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -265,7 +192,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="blogform" action="#" th:action="@{/blog}" th:object="${BlogEntity}"
+                        <form id="blogform" action="#" th:action="@{/blog}" th:object="${blogEntity}"
                               method="post">
                             <div class="form-group">
                                 <label for="recipient-name" class="form-control-label">Blog Name</label>
@@ -276,7 +203,7 @@
                                 <textarea class="form-control" id="message-text" rows="20"
                                           th:field="*{blogDescription}"></textarea>
                             </div>
-                            <button class="btn btn-lg btn-primary btn-block" type="submit" data-dismiss="modal">Submit
+                            <button class="btn btn-lg btn-primary btn-block" id="submit_blog_create" data-dismiss="modal">Submit
                                 Blog
                             </button>
                         </form>
@@ -284,6 +211,7 @@
                 </div>
             </div>
         </div>
+
 
 
     </div>
