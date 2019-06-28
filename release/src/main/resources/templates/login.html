@@ -4,11 +4,6 @@
 <head>
     <title>Blogit Login</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
-    <!-- Call to Test Javascript -->
-    <script src="../js/newLogin.js"></script>
-
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -31,6 +26,8 @@
     </script>
 
     <link rel="stylesheet" type="text/css" href="/css/login.css" as="style"/>
+    <!-- Call to Test Javascript -->
+    <script src="../js/newLogin.js"></script>
 </head>
 
 <body>
@@ -67,6 +64,10 @@
             <a href="signup.htm" role="button"
                class="btn btn-lg btn-danger btn-block form-signin">Sign up
             </a>
+
+            <button class="btn btn-lg btn-primary btn-block" id="sign-in-to-central" type="button" onclick="logInToCentral()">
+                Sign in to Central
+            </button>
 
             <div id="errorx"><p th:if="${loginError}">Incorrect Username or Password</p></div>
 
